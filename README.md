@@ -23,63 +23,147 @@ Things you may want to cover:
 
 * ...
 
-## usersテーブル
+-------------------------------------------------------
+# users
 
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|email|string|null: false|
-|password|string|null: false|
+## usersテーブル
+|Column         |Type   |Options    |
+|---------------|-------|-----------|
+|nickname       |string |null: false|
+|email          |string |null: false|
+|password       |string |null: false|
+|last_name      |string |null: false|
+|first_name     |string |null: false|
+|last_name_kana |string |null: false|
+|first_name_kana|string |null: false|
+|birth_day      |integer|null: false|
+|profile        |text   |-----------|
 
 ### Association
+- has_many: user_adress
 - has_many: gifts
-- has_many: groups, through: history_good__tag
-- has_many: history_good__tag
+- has_many: gifts, through: good_tag
+- has_many: good_tag
+- has_many: gifts, through: history_tag
+- has_many: history_tag
 
+## user_adressテーブル
+|Column       |Type   |Options|
+|-------------|-------|-------|
+|postal_code  |integer|-------|
+|province     |string |-------|
+|city         |string |-------|
+|adress       |string |-------|
+|building_name|string |-------|
+|phone_number |integer|-------|
+
+### Association
+- belongs_to: user
+
+## creditcardテーブル
+|Column         |Type   |Options    |
+|---------------|-------|-----------|
+|card_number    |integer|null: false|
+|expiration_date|integer|null: false|
+|security_code  |integer|null: false|
+
+### Association
+- belongs_to: user
+
+## todo_listsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|todo  |text|-------|
+
+### Association
+- belongs_to: user
+
+## noticesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|notice|text|-------|
+
+### Association
+- belongs_to: user
+
+## evaluationテーブル
+|Column      |Type   |Options|
+|------------|-------|-------|
+|evaluration |text   |-------|
+|evaluator_id|integer|-------|
+
+-------------------------------------------------------
+# gifts
 
 ## giftsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|description|text|null: false|
-|category|text|null: false|
-|state|text|null: false|
+|Column     |Type   |Options    |
+|-----------|-------|-----------|
+|name       |string |null: false|
+|description|text   |null: false|
+|category   |text   |null: false|
+|state      |text   |null: false|
+|price      |integer|null: false|
 
 ### Association
-- has_many: users, through: history_good__tag
+- has_many: users, through: good_tag
+- has_many: users, through: history_tag
 - has_many: ships
 - has_many: images
-- has_many: history_good__tag
+- has_many: good_tag
 
-
-## ships
-|Column|Type|Options|
-|------|----|-------|
+## imagesテーブル
+|Column |Type   |Options    |
+|-------|-------|-----------|
+|name   |string |null: false|
 |gift_id|integer|null: false|
-|charge|integer|null: false|
-|sender|string|null: false|
-|days_to_ship|integer|null: false|
-|state|text|null: false|
-
-### Association
-- belongs_to :gift
-
-## images
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|gift_id|integer|null:false|
 
 ### Association
 - belomgs_to: gift
 
-## history_good__tag
-|Column|Type|Options|
-|------|----|-------|
-|gift_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|created_at|date||
-|good_at|date||
+## shipsテーブル
+|Column         |Type   |Options    |
+|---------------|-------|-----------|
+|gift_id        |integer|null: false|
+|shipping_charge|integer|null: false|
+|sender_region  |string |null: false|
+|days_to_ship   |integer|null: false|
+
+### Association
+- belongs_to :gift
+
+-------------------------------------------------------
+#　中間テーブル
+
+## good_tagテーブル
+|Column  |Type   |Options                       |
+|--------|-------|------------------------------|
+|gift_id |integer|null: false, foreign_key: true|
+|user_id |integer|null: false, foreign_key: true|
+|good_tag|boolean|------------------------------|
+
+### Association
+- brlongs_to: gift
+- belomgs_to: user
+
+## history_tagテーブル
+|Column     |Type   |Options                       |
+|-----------|-------|------------------------------|
+|gift_id    |integer|null: false, foreign_key: true|
+|user_id    |integer|null: false, foreign_key: true|
+|history_tag|boolean|------------------------------|
+|created_at |date   |null:false                    |
+
+### Association
+- brlongs_to: gift
+- belomgs_to: user
+
+## listingテーブル
+|Column   |Type   |Options                       |
+|---------|-------|------------------------------|
+|gift_id  |integer|null: false, foreign_key: true|
+|buyer_id |integer|null: false, foreign_key: true|
+|seller_id|integer|null: false, foreign_key: true|
+|state    |string |------------------------------|
 
 ### Association
 - brlongs_to: gift
