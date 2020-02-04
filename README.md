@@ -48,14 +48,15 @@ Things you may want to cover:
 - has_many: history_tag
 
 ## user_adressテーブル
-|Column       |Type   |Options|
-|-------------|-------|-------|
-|postal_code  |integer|-------|
-|province     |string |-------|
-|city         |string |-------|
-|adress       |string |-------|
-|building_name|string |-------|
-|phone_number |integer|-------|
+|Column       |Type   |Options    |
+|-------------|-------|-----------|
+|user_id      |integer|null: false|
+|postal_code  |integer|-----------|
+|province     |string |-----------|
+|city         |string |-----------|
+|adress       |string |-----------|
+|building_name|string |-----------|
+|phone_number |integer|-----------|
 
 ### Association
 - belongs_to: user
@@ -63,6 +64,7 @@ Things you may want to cover:
 ## creditcardテーブル
 |Column         |Type   |Options    |
 |---------------|-------|-----------|
+|user_id        |integer|null: false|
 |card_number    |integer|null: false|
 |expiration_date|integer|null: false|
 |security_code  |integer|null: false|
@@ -118,7 +120,7 @@ Things you may want to cover:
 |gift_id|integer|null: false|
 
 ### Association
-- belomgs_to: gift
+- belongs_to: gift
 
 ## shipsテーブル
 |Column         |Type   |Options    |
@@ -129,7 +131,7 @@ Things you may want to cover:
 |days_to_ship   |integer|null: false|
 
 ### Association
-- belongs_to :gift
+- belongs_to : gift
 
 -------------------------------------------------------
 #　中間テーブル
@@ -154,7 +156,7 @@ Things you may want to cover:
 |created_at |date   |null:false                    |
 
 ### Association
-- brlongs_to: gift
+- belongs_to: gift
 - belomgs_to: user
 
 ## listingテーブル
