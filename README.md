@@ -127,6 +127,7 @@ Things you may want to cover:
 |---------------|-------|-----------|
 |gift_id        |integer|null: false|
 |shipping_charge|integer|null: false|
+|how_to_ship    |string |null: false|
 |sender_region  |string |null: false|
 |days_to_ship   |integer|null: false|
 
