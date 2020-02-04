@@ -41,6 +41,7 @@ Things you may want to cover:
 
 ### Association
 - has_many: user_adress
+- has_many: creditcard
 - has_many: sns_credentials
 - has_many: gifts
 - has_many: gifts, through: good_tag
