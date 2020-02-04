@@ -182,3 +182,6 @@ Things you may want to cover:
 ### Association
 - brlongs_to: gift
 - belomgs_to: user
+
+# ER図
+https://www.lucidchart.com/documents/edit/54f77995-ee91-4202-9faa-8ace71926ae4/0_0?shared=true
