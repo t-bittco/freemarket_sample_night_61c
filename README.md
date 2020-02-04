@@ -41,6 +41,7 @@ Things you may want to cover:
 
 ### Association
 - has_many: user_adress
+- has_many: sns_credentials
 - has_many: gifts
 - has_many: gifts, through: good_tag
 - has_many: good_tag
@@ -68,6 +69,16 @@ Things you may want to cover:
 |card_number    |integer|null: false|
 |expiration_date|integer|null: false|
 |security_code  |integer|null: false|
+
+### Association
+- belongs_to: user
+
+## sns_credentials
+|Column  |Type     |Options          |
+|--------|---------|-----------------|
+|user    |reference|foreign_key: true|
+|uid     |integer  |-----------------|
+|provider|integer  |-----------------|
 
 ### Association
 - belongs_to: user
