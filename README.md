@@ -38,6 +38,12 @@ Things you may want to cover:
 |first_name_kana|string |null: false|
 |birth_day      |integer|null: false|
 |profile        |text   |-----------|
+|postal_code    |integer|-----------|
+|province       |string |-----------|
+|city           |string |-----------|
+|adress         |string |-----------|
+|building_name  |string |-----------|
+|phone_number   |integer|-----------|
 
 ### Association
 - has_many: user_adress
@@ -49,7 +55,7 @@ Things you may want to cover:
 - has_many: gifts, through: history_tag
 - has_many: history_tag
 
-## user_adressテーブル
+## shipper_regionテーブル
 |Column       |Type   |Options    |
 |-------------|-------|-----------|
 |user_id      |integer|null: false|
