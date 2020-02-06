@@ -109,8 +109,12 @@ Things you may want to cover:
 ## evaluationテーブル
 |Column      |Type   |Options|
 |------------|-------|-------|
+|user_id     |integer|-------|
 |evaluration |text   |-------|
 |evaluator_id|integer|-------|
+
+### Association
+- belongs_to: user
 
 -------------------------------------------------------
 # gifts
