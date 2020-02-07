@@ -43,11 +43,8 @@ Things you may want to cover:
 - has_many: user_adress
 - has_many: creditcard
 - has_many: sns_credentials
-- has_many: gifts
 - has_many: gifts, through: good_tag
-- has_many: good_tag
 - has_many: gifts, through: history_tag
-- has_many: history_tag
 
 ## user_adressテーブル
 |Column       |Type   |Options    |
