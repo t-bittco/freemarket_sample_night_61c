@@ -77,12 +77,12 @@ Things you may want to cover:
 - belongs_to: user
 
 ## creditcardテーブル
-|Column         |Type   |Options    |
-|---------------|-------|-----------|
-|user_id        |integer|null: false|
-|card_number    |integer|null: false|
-|expiration_date|integer|null: false|
-|security_code  |integer|null: false|
+|Column         |Type   |Options                       |
+|---------------|-------|------------------------------|
+|user_id        |integer|null: false, foreign_key: true|
+|card_number    |integer|null: false                   |
+|expiration_date|integer|null: false                   |
+|security_code  |integer|null: false                   |
 
 ### Association
 - belongs_to: user
