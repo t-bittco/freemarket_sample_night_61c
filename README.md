@@ -98,17 +98,19 @@ Things you may want to cover:
 - belongs_to: user
 
 ## todo_listsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|todo  |text|-------|
+|Column |Type   |Options    |
+|-------|-------|-----------|
+|user_id|integer|null: false|
+|todo   |text   |-----------|
 
 ### Association
 - belongs_to: user
 
 ## noticesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|notice|text|-------|
+|Column |Type   |Options    |
+|-------|-------|-----------|
+|user_id|integer|null: false|
+|notice |text   |-----------|
 
 ### Association
 - belongs_to: user
