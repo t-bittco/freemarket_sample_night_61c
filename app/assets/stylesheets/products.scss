@@ -1,3 +1,135 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.header{
+  min-width: 300px;
+  width: 100vh;
+  height: 100px;
+  position: fixed;
+  background-color: white;
+  &__upper{
+    min-width: 150px;
+    width:100vh;
+    &__logo{
+      padding-top: 0px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 0px;
+      margin: 0px; 
+    }
+    &__search-box-form{
+      padding-top: 0px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 0px;
+      margin: 0px; 
+    }
+  }
+  &__under{
+   min-width: 150px;
+   width: 100vh; 
+    &__top-menu{
+      &__categoly{
+        width: 800px;
+        height: 38px;
+        padding-bottom: 4px;
+      }
+      &__brand{
+        width: 800px;
+        height: 38px;
+        padding-bottom: 4px;
+      }
+      &__sign_up{
+        width: 800px;
+        height: 38px;
+        padding-bottom: 4px;
+      }
+      &__sigin_in{
+        width: 800px;
+        height: 38px;
+        padding-bottom: 4px;
+      }
+    }
+  }
+}
+.main{
+  width: 100vh;
+  &__advertise-box__upper{
+    height: 290px;
+  }
+  &__popular-categolies{
+    height: 85px;
+    padding-top: 56px;
+    padding-bottom: 30px;
+    &__title{
+     height: 39px; 
+    }
+    &__categories-box{
+      height: 40px;
+      &__list1, &__list2, &__list3, &__list4,{
+        height: 30px;
+        padding-top: 10px;
+      }
+    }
+  }
+  &__new-items-box--category{
+    &__titles{
+      height: 34px;
+      margin-bottom: 16px;
+      &__title{
+        height: 34px;
+      }
+      &__more{
+        height: 19px;
+        width: 90px;
+      }
+    }
+    &__items{
+      margin: -10px;
+      &__item{
+        padding: 10px;
+        height: 124px;
+        width:  188px;
+      }
+    }
+  }
+  &__popular-brands{
+    height: 85px;
+    padding-top: 56px;
+    padding-bottom: 30px;
+    &__title{
+     height: 39px; 
+    }
+    &__brands-box{
+      height: 40px;
+      &__list1, &__list2, &__list3, &__list4,{
+        height: 30px;
+        padding-top: 10px;
+      }
+    }
+  }
+  .main__new-items-box--brand{
+    &__titles{
+      height: 34px;
+      margin-bottom: 16px;
+      &__title{
+        height: 34px;
+      }
+      &__more{
+        height: 19px;
+        width: 90px;
+      }
+    }
+    &__items{
+      margin: -10px;
+      &__item{
+        padding: 10px;
+        height: 124px;
+        width:  188px;
+      }
+    }
+  }
+  &__advertise-box__under{
+    height: 200px;
+  }
+}
