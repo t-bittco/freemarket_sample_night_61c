@@ -150,7 +150,7 @@ Things you may want to cover:
 ### Association
 - belongs_to: gift
 
-## shipsテーブル
+## shipping_methodテーブル
 |Column         |Type   |Options    |
 |---------------|-------|-----------|
 |gift_id        |integer|null: false|
@@ -176,27 +176,30 @@ Things you may want to cover:
 -------------------------------------------------------
 # 中間テーブルの子テーブル
 
-## good_history_tagテーブル
+## like_history_flagテーブル
 |Column        |Type   |Options|
 |--------------|-------|-------|
 |users_gifts_id|integer|-------|
-|good_tag      |boolean|-------|
-|history_tag   |boolean|-------|
+|is_like_flag  |boolean|-------|
+|history_flag  |boolean|-------|
 
 ### Association
-- brlongs_to: users_gifts
+- belongs_to: users_gifts
 
 ## listingテーブル
-|Column        |Type   |Options    |
-|--------------|-------|-----------|
-|users_gifts_id|integer|null: false|
-|gift_id       |integer|null: false|
-|buyer_id      |integer|null: false|
-|seller_id     |integer|null: false|
-|state         |string |-----------|
+|Column        |Type   |Options                       |
+|--------------|-------|------------------------------|
+|users_gifts_id|integer|null: false                   |
+|gift_id       |integer|null: false, foreign_key: true|
+|buyer_id      |integer|null: false, foreign_key: true|
+|seller_id     |integer|null: false, foreign_key: true|
+|state         |string |------------------------------|
 
 ### Association
-- brlongs_to: users_gifts
+- belongs_to: users_gifts
+- belongs_to: gift
+- belongs_to: buyer_id, class_name: "User"
+- belongs_to: seller_id, class_name: "User" 
 
 # ER図
 https://www.lucidchart.com/documents/edit/54f77995-ee91-4202-9faa-8ace71926ae4/0_0?shared=true
