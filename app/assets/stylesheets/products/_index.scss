@@ -121,6 +121,7 @@
   width: 100vh;
   &__advertise-box__upper{
     height: 290px;
+    padding-top: 80px;
     background-color: olivedrab;
   }
   &__popular-categories{
@@ -152,19 +153,28 @@
     }
   }
   &__new-items-box--category{
+    width: calc(100vh - 100px);
+    height: calc(100vh - 350px);
+    margin-right: auto;
+    margin-left: auto;
     &__titles{
-      height: 34px;
+      height: 24px;
       margin-bottom: 16px;
+      position: relative;
       &__title{
-        height: 34px;
+        font-size: 20px;
+        position: absolute;
+        left: 0;
       }
       &__more{
-        height: 19px;
-        width: 90px;
+        font-size: 14px;
+        position: absolute;
+        right: 0;
       }
     }
     &__items{
-      margin: -10px;
+      height: calc(100vh - 350px - 24px);
+      background-color: peru;
       &__item{
         padding: 10px;
         height: 124px;
@@ -178,29 +188,52 @@
     padding-bottom: 30px;
     &__title{
      height: 39px; 
+     text-align: center;
+     font-size: 30px;
     }
-    &__brands-box{
+    &__brand-box{
       height: 40px;
-      &__list1, &__list2, &__list3, &__list4,{
-        height: 30px;
-        padding-top: 10px;
+      padding-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      &__list1, &__list2, &__list3, &__list4{
+        background-color: gray;
+        padding-top: 2px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-bottom: 2px;
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 10px;
       }
     }
   }
   .main__new-items-box--brand{
+    width: calc(100vh - 100px);
+    height: calc(100vh - 350px);
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 100px;
     &__titles{
-      height: 34px;
+      height: 24px;
       margin-bottom: 16px;
+      position: relative;
       &__title{
-        height: 34px;
+        font-size: 20px;
+        position: absolute;
+        left: 0;
       }
       &__more{
-        height: 19px;
-        width: 90px;
+        font-size: 14px;
+        position: absolute;
+        right: 0;
       }
     }
     &__items{
-      margin: -10px;
+      height: calc(100vh - 350px - 24px);
+      background-color: peru;
       &__item{
         padding: 10px;
         height: 124px;
@@ -210,5 +243,6 @@
   }
   &__advertise-box__under{
     height: 200px;
+    background-color: aqua;
   }
 }
