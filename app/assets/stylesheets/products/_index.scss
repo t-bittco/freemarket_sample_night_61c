@@ -20,6 +20,12 @@
         padding-right: 10px;
         padding-bottom: 0px;
         margin: 0px; 
+        .fas fa-shopping-cart fa-lg fa-spin{
+          color: skyblue;
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: "\f07a";
+        }
       }
       &__search-box-form{
         width: calc(100vh - 200px);
