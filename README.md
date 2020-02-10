@@ -41,10 +41,13 @@ Things you may want to cover:
 
 ### Association
 - has_many: user_adress
-- has_many: creditcard
+- has_many: shipper_regions
+- has_many: creditcards
 - has_many: sns_credentials
-- has_many: gifts, through: good_tag
-- has_many: gifts, through: history_tag
+- has_many: todo_lists
+- has_many: notices
+- has_many; evaluations
+- has_many: gifts, through: like_history_flag
 
 ## user_adressテーブル
 |Column       |Type   |Options    |
@@ -59,7 +62,7 @@ Things you may want to cover:
 ### Association
 - belongs_to: user
 
-## shipper_regionテーブル
+## shipper_regionsテーブル
 |Column       |Type   |Options    |
 |-------------|-------|-----------|
 |user_id      |integer|null: false|
@@ -73,7 +76,7 @@ Things you may want to cover:
 ### Association
 - belongs_to: user
 
-## creditcardテーブル
+## creditcardsテーブル
 |Column         |Type   |Options                       |
 |---------------|-------|------------------------------|
 |user_id        |integer|null: false, foreign_key: true|
@@ -112,7 +115,7 @@ Things you may want to cover:
 ### Association
 - belongs_to: user
 
-## evaluationテーブル
+## evaluationsテーブル
 |Column      |Type   |Options|
 |------------|-------|-------|
 |user_id     |integer|-------|
@@ -135,11 +138,9 @@ Things you may want to cover:
 |price      |integer|null: false|
 
 ### Association
-- has_many: users, through: good_tag
-- has_many: users, through: history_tag
-- has_many: ships
+- has_many: users, through: like_history_flag
+- has_many: shipping_method
 - has_many: images
-- has_many: good_tag
 
 ## imagesテーブル
 |Column |Type   |Options    |
