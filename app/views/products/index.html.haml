@@ -2,27 +2,29 @@
   .header__wrapper
     .header__wrapper__upper
       .header__wrapper__upper__logo
-        %p
-          %i{ class: "fas fa-shopping-cart fa-lg fa-spin"}
-          MERCARI
+        %p FreeMarketTeamC
+        %i{ class: "fas fa-shopping-cart fa-lg fa-spin"}
       .header__wrapper__upper__search-box-form
-        何かお探しですか？
+        %p 何かお探しですか？
     .header__wrapper__under
-      %ul{class: "header__wrapper__under__top-menu"}
-        %li{class: "header__wrapper__under__top-menu__categoly"}
+      %ul{class: "header__wrapper__under__left-menu"}
+        %li{class: "header__wrapper__under__left-menu__categoly"}
           カテゴリーから探す
-        %li{class: "header__wrapper__under__top-menu__brand"}
+          %i{class: "far fa-caret-square-down"}
+        %li{class: "header__wrapper__under__left-menu__brand"}
           ブランドから探す
-        %li{class: "header__wrapper__under__top-menu__sign_up"}
-          新規登録
-        %li{class: "header__wrapper__under__top-menu__sigin_in"}
-          ログイン
+          %i{class: "far fa-caret-square-down"}
+      %ul{class: "header__wrapper__under__right-menu"}
+        %li{class: "header__wrapper__under__right-menu__sign_up"}
+          %p 新規会員登録
+        %li{class: "header__wrapper__under__right-menu__sigin_in"}
+          %p ログイン
 .main
   .main__advertise-box__upper
-  .main__popular-categolies
-    .main__popular-categolies__title
+  .main__popular-categories
+    .main__popular-categories__title
       人気カテゴリー
-    %ul{class: "main__popular-categories__categories-box"}
+    %ul{class: "main__popular-categories__category-box"}
       %li{class: "main__popular-categories__category-box__list1"}
         レディース
       %li{class: "main__popular-categories__category-box__list2"}

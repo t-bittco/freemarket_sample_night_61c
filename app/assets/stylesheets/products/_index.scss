@@ -3,74 +3,115 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .header{
   width: 100vh;
-  height: 100px;
+  height: 80px;
   position: fixed;
   background-color: white;
   &__wrapper{
+    width: calc(100vh - 20px);
+    margin-right: auto;
+    margin-left: auto;
     &__upper{
       height: 40px;
-      width:100vh;
+      width: 100vh;
+      margin-right: auto;
+      margin-left: auto;
       position: relative;
       &__logo{
-        width: 150px;
-        position: absolute;
-        left: 0;
+        width: 30%;
+        background-color: thistle;
+        border: solid 2px thistle;
         padding-top: 0px;
         padding-left: 10px;
         padding-right: 10px;
         padding-bottom: 0px;
-        margin: 0px; 
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: row;
+        p{
+          margin-right: 10px; 
+        } 
         .fas fa-shopping-cart fa-lg fa-spin{
-          color: skyblue;
           font-family: "Font Awesome 5 Free";
           font-weight: 900;
           content: "\f07a";
         }
       }
       &__search-box-form{
-        width: calc(100vh - 200px);
-        position: absolute;
-        right: 0;
+        width: 65%;
         padding-top: 0px;
         padding-left: 10px;
         padding-right: 10px;
         padding-bottom: 0px;
-        margin: 0px; 
+        margin-top: auto;
+        margin-bottom: auto;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
       }
     }
     &__under{
-      width: 100vh; 
-      &__top-menu{
-        position: relative;
+      height: 40px;
+      position: relative;
+      &__left-menu{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &__categoly{
-          width: 200px;
-          height: 38px;
-          background-color: gray;
           padding-bottom: 4px;
-          position: absolute;
-          left: 0;
-          border-radius: 10px;
+          font-size: 12px;
         }
         &__brand{
-          width: 200px;
-          height: 38px;
           padding-bottom: 4px;
-          position: absolute;
-          left: 200px;
+          font-size: 12px;
         }
+      }
+      &__right-menu{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &__sign_up{
-          width: 200px;
-          height: 38px;
+          height: 26px;
+          font-size: 13px;
           padding-bottom: 4px;
-          position: absolute;
-          right: 200px;
+          margin-right: 4px;
+          border-radius: 5px;
+          color: white;
+          background-color: red;
+          p{
+            padding-top: 8px;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-bottom: 8px;
+            text-align: center;
+          }
         }
         &__sigin_in{
-          width: 200px;
-          height: 38px;
+          height: 24px;
+          font-size: 13px;
           padding-bottom: 4px;
-          position: absolute;
-          right: 0;
+          border-radius: 5px;
+          color: skyblue;
+          border: solid 2px skyblue;
+          p{
+            padding-top: 8px;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-bottom: 8px;
+            text-align: center;
+          }
         }
       }
     }
@@ -80,19 +121,33 @@
   width: 100vh;
   &__advertise-box__upper{
     height: 290px;
+    background-color: olivedrab;
   }
-  &__popular-categolies{
+  &__popular-categories{
     height: 85px;
     padding-top: 56px;
     padding-bottom: 30px;
     &__title{
      height: 39px; 
+     text-align: center;
+     font-size: 30px;
     }
-    &__categories-box{
+    &__category-box{
       height: 40px;
-      &__list1, &__list2, &__list3, &__list4,{
-        height: 30px;
-        padding-top: 10px;
+      padding-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      &__list1, &__list2, &__list3, &__list4{
+        background-color: gray;
+        padding-top: 2px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-bottom: 2px;
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 10px;
       }
     }
   }
