@@ -164,10 +164,21 @@ Things you may want to cover:
 ### Association
 - belongs_to : gift
 
+## user_gift_purchasesテーブル
+|Column     |Type   |Options                       |
+|-----------|-------|------------------------------|
+|gift_id    |integer|null: false, foreign_key: true|
+|user_id    |integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to: user
+- belongs_to: gift
+
+
 ## listingsテーブル
 |Column      |Type   |Options                                     |
 |------------|-------|--------------------------------------------|
-|user_gift_id|integer|null: false                                 |
+|user_gift_id|integer|null: false, foreign_key: true              |
 |gift_id     |integer|null: false, foreign_key: true              |
 |buyer_id    |integer|null: false, foreign_key: { to_table :User }|
 |seller_id   |integer|null: false, foreign_key: { to_table :User }|
@@ -179,25 +190,12 @@ Things you may want to cover:
 - belongs_to: buyer_id, class_name: "User"
 - belongs_to: seller_id, class_name: "User" 
 
--------------------------------------------------------
-#　中間テーブル
-
-## user_gift_purchasesテーブル
-|Column     |Type   |Options                       |
-|-----------|-------|------------------------------|
-|gift_id    |integer|null: false, foreign_key: true|
-|user_id    |integer|null: false, foreign_key: true|
-- belongs_to: user
-- belongs_to: gift
-
-# 中間テーブルの子テーブル
-
 ## like_history_flagsテーブル
-|Column      |Type   |Options|
-|------------|-------|-------|
-|user_gift_id|integer|-------|
-|is_like_flag|boolean|-------|
-|history_flag|boolean|-------|
+|Column      |Type   |Options          |
+|------------|-------|-----------------|
+|user_gift_id|integer|foreign_key: true|
+|is_like_flag|boolean|-----------------|
+|history_flag|boolean|-----------------|
 
 ### Association
 - belongs_to: user_gift_purchases
