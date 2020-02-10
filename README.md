@@ -47,7 +47,7 @@ Things you may want to cover:
 - has_many: todo_lists
 - has_many: notices
 - has_many; evaluations
-- has_many: gifts, through: like_history_flag
+- has_many: gifts, through: like_history_flags
 
 ## user_adressテーブル
 |Column       |Type   |Options    |
@@ -138,9 +138,10 @@ Things you may want to cover:
 |price      |integer|null: false|
 
 ### Association
-- has_many: users, through: like_history_flag
+- has_many: users, through: like_history_flags
 - has_many: shipping_method
 - has_many: images
+- has_many: listings
 
 ## imagesテーブル
 |Column |Type   |Options    |
@@ -163,10 +164,25 @@ Things you may want to cover:
 ### Association
 - belongs_to : gift
 
+## listingsテーブル
+|Column      |Type   |Options                                     |
+|------------|-------|--------------------------------------------|
+|user_gift_id|integer|null: false                                 |
+|gift_id     |integer|null: false, foreign_key: true              |
+|buyer_id    |integer|null: false, foreign_key: { to_table :User }|
+|seller_id   |integer|null: false, foreign_key: { to_table :User }|
+|state       |string |--------------------------------------------|
+
+### Association
+- belongs_to: user_gift_purchases
+- belongs_to: gift
+- belongs_to: buyer_id, class_name: "User"
+- belongs_to: seller_id, class_name: "User" 
+
 -------------------------------------------------------
 #　中間テーブル
 
-## user_gift_purchaseテーブル
+## user_gift_purchasesテーブル
 |Column     |Type   |Options                       |
 |-----------|-------|------------------------------|
 |gift_id    |integer|null: false, foreign_key: true|
@@ -174,33 +190,17 @@ Things you may want to cover:
 - belongs_to: user
 - belongs_to: gift
 
--------------------------------------------------------
 # 中間テーブルの子テーブル
 
-## like_history_flagテーブル
-|Column        |Type   |Options|
-|--------------|-------|-------|
-|users_gifts_id|integer|-------|
-|is_like_flag  |boolean|-------|
-|history_flag  |boolean|-------|
+## like_history_flagsテーブル
+|Column      |Type   |Options|
+|------------|-------|-------|
+|user_gift_id|integer|-------|
+|is_like_flag|boolean|-------|
+|history_flag|boolean|-------|
 
 ### Association
-- belongs_to: user_gift_purchase
-
-## listingテーブル
-|Column        |Type   |Options                       |
-|--------------|-------|------------------------------|
-|users_gifts_id|integer|null: false                   |
-|gift_id       |integer|null: false, foreign_key: true|
-|buyer_id      |integer|null: false, foreign_key: true|
-|seller_id     |integer|null: false, foreign_key: true|
-|state         |string |------------------------------|
-
-### Association
-- belongs_to: user_gift_purchase
-- belongs_to: gift
-- belongs_to: buyer_id, class_name: "User"
-- belongs_to: seller_id, class_name: "User" 
+- belongs_to: user_gift_purchases
 
 # ER図
 https://www.lucidchart.com/documents/edit/54f77995-ee91-4202-9faa-8ace71926ae4/0_0?shared=true
