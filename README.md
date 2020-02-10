@@ -165,7 +165,7 @@ Things you may want to cover:
 -------------------------------------------------------
 #　中間テーブル
 
-## users_giftsテーブル
+## user_gift_purchaseテーブル
 |Column     |Type   |Options                       |
 |-----------|-------|------------------------------|
 |gift_id    |integer|null: false, foreign_key: true|
@@ -184,7 +184,7 @@ Things you may want to cover:
 |history_flag  |boolean|-------|
 
 ### Association
-- belongs_to: users_gifts
+- belongs_to: user_gift_purchase
 
 ## listingテーブル
 |Column        |Type   |Options                       |
@@ -196,7 +196,7 @@ Things you may want to cover:
 |state         |string |------------------------------|
 
 ### Association
-- belongs_to: users_gifts
+- belongs_to: user_gift_purchase
 - belongs_to: gift
 - belongs_to: buyer_id, class_name: "User"
 - belongs_to: seller_id, class_name: "User" 
