@@ -6,6 +6,7 @@
   height: 80px;
   position: fixed;
   background-color: white;
+  z-index: 1;
   &__wrapper{
     width: calc(100vh - 20px);
     margin-right: auto;
@@ -244,5 +245,36 @@
   &__advertise-box__under{
     height: 200px;
     background-color: aqua;
+  }
+}
+.footer{
+  width: 100vh;
+  color: white;
+  background-color: black;
+  .footer__wrapper{
+    width: calc(100vh - 20px);
+    margin-right: auto;
+    margin-left: auto;
+    .footer__wrapper__upper-footer{
+      .footer__wrapper__upper-footer__about{
+        width: 40%;
+      }
+      .footer__wrapper__upper-footer__help{
+        width: 60%;
+      }
+    }
+    .footer__wrapper__middle-footer{
+      .footer__wrapper__middle-footer__privacy{
+        
+      }
+    }
+    .footer__wrapper__under-dooter{
+      .footer__wrapper__under-dooter__nationality{
+
+      }
+    }
+    .footer__wrapper__logo{
+
+    }
   }
 }
