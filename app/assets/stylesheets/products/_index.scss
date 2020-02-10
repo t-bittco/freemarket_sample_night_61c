@@ -2,52 +2,70 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .header{
-  min-width: 300px;
   width: 100vh;
   height: 100px;
   position: fixed;
   background-color: white;
-  &__upper{
-    min-width: 150px;
-    width:100vh;
-    &__logo{
-      padding-top: 0px;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-bottom: 0px;
-      margin: 0px; 
+  &__wrapper{
+    &__upper{
+      height: 40px;
+      width:100vh;
+      position: relative;
+      &__logo{
+        width: 150px;
+        position: absolute;
+        left: 0;
+        padding-top: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 0px;
+        margin: 0px; 
+      }
+      &__search-box-form{
+        width: calc(100vh - 200px);
+        position: absolute;
+        right: 0;
+        padding-top: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 0px;
+        margin: 0px; 
+      }
     }
-    &__search-box-form{
-      padding-top: 0px;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-bottom: 0px;
-      margin: 0px; 
-    }
-  }
-  &__under{
-   min-width: 150px;
-   width: 100vh; 
-    &__top-menu{
-      &__categoly{
-        width: 800px;
-        height: 38px;
-        padding-bottom: 4px;
-      }
-      &__brand{
-        width: 800px;
-        height: 38px;
-        padding-bottom: 4px;
-      }
-      &__sign_up{
-        width: 800px;
-        height: 38px;
-        padding-bottom: 4px;
-      }
-      &__sigin_in{
-        width: 800px;
-        height: 38px;
-        padding-bottom: 4px;
+    &__under{
+      width: 100vh; 
+      &__top-menu{
+        position: relative;
+        &__categoly{
+          width: 200px;
+          height: 38px;
+          background-color: gray;
+          padding-bottom: 4px;
+          position: absolute;
+          left: 0;
+          border-radius: 10px;
+        }
+        &__brand{
+          width: 200px;
+          height: 38px;
+          padding-bottom: 4px;
+          position: absolute;
+          left: 200px;
+        }
+        &__sign_up{
+          width: 200px;
+          height: 38px;
+          padding-bottom: 4px;
+          position: absolute;
+          right: 200px;
+        }
+        &__sigin_in{
+          width: 200px;
+          height: 38px;
+          padding-bottom: 4px;
+          position: absolute;
+          right: 0;
+        }
       }
     }
   }
