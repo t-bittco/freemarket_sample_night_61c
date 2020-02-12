@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .header{
-  width: 100vh;
+  width: 100vw;
   height: 80px;
   position: fixed;
   background-color: white;
@@ -13,7 +13,6 @@
     margin-left: auto;
     &__upper{
       height: 40px;
-      width: 100vh;
       margin-right: auto;
       margin-left: auto;
       position: relative;
@@ -119,7 +118,7 @@
   }
 }
 .main{
-  width: 100vh;
+  width: 100vw;
   &__advertise-box__upper{
     height: 290px;
     width: 100%;
@@ -154,7 +153,7 @@
     }
   }
   &__new-items-box--category{
-    width: calc(100vh - 100px);
+    width: calc(100vw - 100px);
     height: calc(100vh - 350px);
     margin-right: auto;
     margin-left: auto;
@@ -212,7 +211,7 @@
     }
   }
   .main__new-items-box--brand{
-    width: calc(100vh - 100px);
+    width: calc(100vw - 100px);
     height: calc(100vh - 350px);
     margin-right: auto;
     margin-left: auto;
@@ -248,11 +247,11 @@
   }
 }
 .footer{
-  width: 100vh;
+  width: 100vw;
   color: white;
   background-color: black;
   &__wrapper{
-    width: calc(100vh - 100px);
+    width: calc(100vw - 100px);
     margin-right: auto;
     margin-left: auto;
     font-size: 12px;
