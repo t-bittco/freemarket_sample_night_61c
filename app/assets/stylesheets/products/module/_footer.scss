@@ -1,0 +1,32 @@
+.footer{
+  width: 100vw;
+  color: white;
+  background-color: black;
+  .wrapper{
+    width: calc(100vw - 100px);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-around;
+    .about, .help, .privacy{
+      h2{
+        font-size: 20px;
+      }
+      &__title{
+        font-size: 20px;
+      }
+      &__detail{
+        padding-top: 10px; 
+        display: flex;
+        .left, .right{
+          width: 50%;
+        }
+      }
+    }
+    .logo{
+    }
+  }
+}
