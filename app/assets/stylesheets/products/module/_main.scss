@@ -1,13 +1,15 @@
 .main{
   width: 100vw;
   .advertise-box__upper{
-    height: 290px;
+    height: 400px;
     width: 100%;
     padding-top: 80px;
+    background-image: url("../../../../assets/images/IMG_2736.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vh 400px;
   }
   .popular-categories{
     height: 85px;
-    padding-top: 56px;
     padding-bottom: 30px;
     &__title{
      height: 39px; 
@@ -124,6 +126,7 @@
   }
   .advertise-box__under{
     height: 200px;
-    background-color: aqua;
+    background-image: url("../../../../assets/images/IMG_1950.jpg");
+    background-size: 100vw 200px;
   }
 }
