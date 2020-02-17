@@ -1,0 +1,93 @@
+.header{
+  width: 100vw;
+  height: 100px;
+  position: fixed;
+  background-color: white;
+  z-index: 1;
+  .wrapper{
+    width: calc(100vw - 200px);
+    @include box-centerise();
+    .upper{
+      width: 100%;
+      @include flex-box();
+      &__logo{
+        width: 200px;
+        background-color: thistle;
+        padding: 10px;
+        margin: 10px 20px 0px 0px;
+        border: solid 2px turquoise;
+        @include flex-box();
+        p{
+          margin-right: 10px; 
+        } 
+        .fas fa-shopping-cart fa-lg fa-spin{
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: "\f07a";
+        }
+      }
+      &__search-box-form{
+        width: calc(100% - 200px);
+        background-color: gray;
+        padding: 10px;
+        margin-top: 10px;
+        border: solid 2px turquoise;
+      }
+    }
+    .under{
+      width: 100%;
+      position: relative;
+      .left-menu{
+        padding: 5px;
+        position: absolute;
+        left: 0;
+        @include flex-box;
+        &__categoly{
+          font-size: 12px;
+          margin-right: 10px;
+          @include flex-box();
+          p{
+            padding: 10px;
+            text-align: center;
+          }
+        }
+        &__brand{
+          font-size: 12px;
+          @include flex-box();
+          p{
+            padding: 10px;
+            text-align: center;
+          }
+        }
+      }
+      .right-menu{
+        padding: 5px;
+        position: absolute;
+        right: 0;
+        @include flex-box();
+        &__sign_up{
+          font-size: 13px;
+          color: white;
+          background-color: red;
+          margin-right: 10px;
+          border-radius: 5px;
+          border: solid 2px red;
+          p{
+            padding: 10px;
+            text-align: center;
+          }
+        }
+        &__sigin_in{
+          font-size: 13px;
+          color: skyblue;
+          border-radius: 5px;
+          border: solid 2px skyblue;
+          p{
+            padding: 10px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

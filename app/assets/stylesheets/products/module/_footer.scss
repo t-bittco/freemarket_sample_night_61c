@@ -1,0 +1,26 @@
+.footer{
+  width: 100vw;
+  color: white;
+  background-color: black;
+  .wrapper{
+    width: calc(100vw - 100px);
+    @include box-centerise();
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-around;
+    .about, .help, .privacy{
+      &__title{
+        font-size: 20px;
+      }
+      &__detail{
+        padding-top: 10px; 
+        display: flex;
+        &--left, &--right{
+          width: 50%;
+        }
+      }
+    }
+  }
+}
