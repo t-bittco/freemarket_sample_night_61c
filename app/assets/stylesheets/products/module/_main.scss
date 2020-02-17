@@ -3,26 +3,22 @@
   .advertise-box__upper{
     height: 400px;
     width: 100%;
-    padding-top: 80px;
+    padding-top: 100px;
     color: black;
     background-image: url("../../../../assets/images/IMG_2736.jpg");
     background-repeat: no-repeat;
-    background-size: 100vw 400px;
+    background-size: 100vw 450px;
     .head{
-      font-size: 50px;
       width: calc(100vw - 300px);
+      font-size: 50px;
       padding-top: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+      @include textbox-centerise();
     }
     .text{
-      font-size: 20px;
       width: calc(100vw - 300px);
+      font-size: 20px;
       padding-top: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+      @include textbox-centerise();
     }
   }
   .popular-categories{
@@ -30,23 +26,17 @@
     padding-bottom: 30px;
     &__title{
      height: 39px; 
-     text-align: center;
      font-size: 30px;
+     text-align: center;
     }
     &__category-box{
       height: 40px;
       padding-top: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       list-style: none;
+      @include flex-box();
       li{
         background-color: gray;
-        padding-top: 2px;
-        padding-right: 10px;
-        padding-left: 10px;
-        padding-bottom: 2px;
-        margin-right: 10px;
+        padding: 2px 10px 2px 10px;
         margin-left: 10px;
         border-radius: 10px;
       }
@@ -55,8 +45,7 @@
   .new-items-box__category{
     width: calc(100vw - 100px);
     height: calc(100vh - 350px);
-    margin-right: auto;
-    margin-left: auto;
+    @include box-centerise();
     .titles{
       height: 24px;
       margin-bottom: 16px;
@@ -94,17 +83,11 @@
     &__brand-box{
       height: 40px;
       padding-top: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       list-style: none;
+      @include flex-box();
       li{
         background-color: gray;
-        padding-top: 2px;
-        padding-right: 10px;
-        padding-left: 10px;
-        padding-bottom: 2px;
-        margin-right: 10px;
+        padding: 2px 10px 2px 10px; 
         margin-left: 10px;
         border-radius: 10px;
       }
@@ -113,8 +96,7 @@
   .new-items-box__brand{
     width: calc(100vw - 100px);
     height: calc(100vh - 350px);
-    margin-right: auto;
-    margin-left: auto;
+    @include box-centerise();
     margin-bottom: 100px;
     .titles{
       height: 24px;
@@ -146,29 +128,22 @@
     background-image: url("../../../../assets/images/IMG_1950.jpg");
     background-size: 100vw 200px;
     .head{
-      font-size: 50px;
+      font-size: 30px;
       width: calc(100vw - 300px);
       padding-top: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+      @include textbox-centerise();
     }
     .text{
       font-size: 20px;
       width: calc(100vw - 300px);
       padding-top: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+      @include textbox-centerise();
     }
     .link{
       width: calc(100vw - 300px);
       padding-top: 30px;
-      margin-right: auto;
-      margin-left: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex-box();
+      @include textbox-centerise();
       .fas fa-shopping-cart fa-2x fa-spin{
         color: white;
       }

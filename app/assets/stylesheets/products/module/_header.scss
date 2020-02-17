@@ -1,32 +1,22 @@
 .header{
   width: 100vw;
-  height: 80px;
+  height: 100px;
   position: fixed;
   background-color: white;
   z-index: 1;
   .wrapper{
-    width: calc(100vh - 20px);
-    margin-right: auto;
-    margin-left: auto;
+    width: calc(100vw - 200px);
+    @include box-centerise();
     .upper{
-      height: 40px;
-      margin-right: auto;
-      margin-left: auto;
-      position: relative;
+      width: 100%;
+      @include flex-box();
       &__logo{
-        width: 30%;
+        width: 200px;
         background-color: thistle;
-        border: solid 2px thistle;
-        padding-top: 0px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 0px;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        display: flex;
-        flex-direction: row;
+        padding: 10px;
+        margin: 10px 20px 0px 0px;
+        border: solid 2px turquoise;
+        @include flex-box();
         p{
           margin-right: 10px; 
         } 
@@ -37,74 +27,63 @@
         }
       }
       &__search-box-form{
-        width: 65%;
-        padding-top: 0px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 0px;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
+        width: calc(100% - 200px);
+        background-color: gray;
+        padding: 10px;
+        margin-top: 10px;
+        border: solid 2px turquoise;
       }
     }
     .under{
-      height: 40px;
+      width: 100%;
       position: relative;
       .left-menu{
+        padding: 5px;
         position: absolute;
         left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-box;
         &__categoly{
-          padding-bottom: 4px;
           font-size: 12px;
+          margin-right: 10px;
+          @include flex-box();
+          p{
+            padding: 10px;
+            text-align: center;
+          }
         }
         &__brand{
-          padding-bottom: 4px;
           font-size: 12px;
+          @include flex-box();
+          p{
+            padding: 10px;
+            text-align: center;
+          }
         }
       }
       .right-menu{
+        padding: 5px;
         position: absolute;
         right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        margin-right: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-box();
         &__sign_up{
-          height: 26px;
           font-size: 13px;
-          padding-bottom: 4px;
-          margin-right: 4px;
-          border-radius: 5px;
           color: white;
           background-color: red;
+          margin-right: 10px;
+          border-radius: 5px;
+          border: solid 2px red;
           p{
-            padding-top: 8px;
-            padding-right: 10px;
-            padding-left: 10px;
-            padding-bottom: 8px;
+            padding: 10px;
             text-align: center;
           }
         }
         &__sigin_in{
-          height: 24px;
           font-size: 13px;
-          padding-bottom: 4px;
-          border-radius: 5px;
           color: skyblue;
+          border-radius: 5px;
           border: solid 2px skyblue;
           p{
-            padding-top: 8px;
-            padding-right: 10px;
-            padding-left: 10px;
-            padding-bottom: 8px;
+            padding: 10px;
             text-align: center;
           }
         }
