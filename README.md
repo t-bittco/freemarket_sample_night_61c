@@ -134,6 +134,8 @@ Things you may want to cover:
 |name       |string |null: false|
 |description|text   |null: false|
 |category   |text   |null: false|
+|child_category|string|null: false|
+|ground_category|string|null: false|
 |state      |text   |null: false|
 |price      |integer|null: false|
 
