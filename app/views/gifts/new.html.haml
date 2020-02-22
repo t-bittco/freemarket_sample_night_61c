@@ -1,23 +1,24 @@
 = form_for [@gift] do |f|
   %label "商品名"
   = f.text_field :name, placeholder: "Until 40"
-  %label "出品画像"
-  = f.file_field :image, multiple: :true, type: 'file', name: "images[name][]"
+  = f.fields_for :images do |i|
+    %label "出品画像"
+    = i.file_field :image, multiple: :true, type: 'file', name: "images[name][]"
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
   %label "カテゴリー"
   = f.text_field :category, placeholder: "Choose Category!"
   %label "商品の状態"
   = f.text_field :state, placeholder: "Choose State Of Your Gift"
-  = form_for [@shipping_method], url: gifts_url do |f|
+  = f.fields_for :shipping_methods do |s|
     %label "配送料の負担"
-    = f.text_field :shipping_charge, placeholder: "Who"
+    = s.text_field :shipping_charge, placeholder: "Who"
     %label "配送方法"
-    = f.text_field :how_to_ship
+    = s.text_field :how_to_ship
     %label "発送元地域"
-    = f.text_field :sender_region
+    = s.text_field :sender_region
     %label "発送までの日数"
-    = f.text_field :days_to_ship
+    = s.text_field :days_to_ship
   %label "販売価格"
   = f.text_field :price, placeholder: "Type Price Of Your Gift"
   = f.submit "出品する"
