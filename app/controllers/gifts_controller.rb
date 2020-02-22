@@ -1,5 +1,6 @@
 class GiftsController < ApplicationController
   def index
+    @gift = Gift.new
   end
   def new
   end
