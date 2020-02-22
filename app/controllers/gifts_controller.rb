@@ -3,8 +3,8 @@ class GiftsController < ApplicationController
   end
   def new
     @gift = Gift.new
-    @image = Image.new
-    @shipping_method = ShippingMethod.new
+    @gift.images.build
+    @gift.shipping_methods.build
   end
   def create
   end
