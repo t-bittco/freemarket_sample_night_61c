@@ -1,6 +1,8 @@
 = form_for @gift do |f|
   %label "商品名"
   = f.text_field :name, placeholder: "Until 40"
+  %label "出品画像"
+  = f.file_field :image, multiple: :true
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
   %label "カテゴリー"
