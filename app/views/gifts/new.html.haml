@@ -8,6 +8,10 @@
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
   %label "カテゴリー"
   = f.text_field :category, placeholder: "Choose Category!"
+  %label 子カテゴリー
+  =f.text_field :child_category
+  %label 孫カテゴリー
+  =f.text_field :grand_category
   %label "商品の状態"
   = f.text_field :state, placeholder: "Choose State Of Your Gift"
   = f.fields_for :shipping_methods do |s|
