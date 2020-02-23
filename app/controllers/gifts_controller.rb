@@ -2,14 +2,17 @@ class GiftsController < ApplicationController
   def index
   end
   def new
-    @gift = Gift.new
-    @gift.images.build
-    @gift.build_shipping_method
   end
   def create
+    # binding.pry
+    @gift = Gift.create!(gift_params)
+    # @gift.images.build(gift_params)
+    # @gift.build.shipping_method(gift_params)
+    # @gift.create!
   end
-  private 
-    def gift_params
-      params.require(:gift).permit(:name,images_attributes: [:gift_id],shipping_method_attributes: [:gift_id])
-    end
+
+  private
+  def gift_params
+    params.require(:gift).permit(:name, :discription, :category, :child_category, :grand_category, :state, :price)
+  end
 end
