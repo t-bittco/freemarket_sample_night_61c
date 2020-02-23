@@ -5,7 +5,7 @@ class GiftsController < ApplicationController
   end
   def create
     # binding.pry
-    @gift = Gift.create!(gift_params)
+    @gift = Gift.create(gift_params)
     # @gift.images.build(gift_params)
     # @gift.build.shipping_method(gift_params)
     # @gift.create!
@@ -13,6 +13,6 @@ class GiftsController < ApplicationController
 
   private
   def gift_params
-    params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :state, :price, :category_id, :image_id)
+    params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :days_to_ship, :state, :price)
   end
 end
