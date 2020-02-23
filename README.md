@@ -129,21 +129,25 @@ Things you may want to cover:
 # gifts
 
 ## giftsテーブル
-|Column     |Type   |Options    |
-|-----------|-------|-----------|
-|name       |string |null: false|
-|description|text   |null: false|
-|category   |text   |null: false|
-|child_category|string|null: false|
-|ground_category|string|null: false|
-|state      |text   |null: false|
-|price      |integer|null: false|
+|Column         |Type   |Options    |
+|---------------|-------|-----------|
+|name           |string |null: false|
+|description    |text   |null: false|
+|shipping_charge|string |null: false|
+|how_to_ship    |string |null: false|
+|sender_region  |string |null: false|
+|days_to_ship   |string |null: false|
+|state          |text   |null: false|
+|price          |integer|null: false|
+|user_id        |integer|           |
+|gift_id        |integer|           |
+|category_id    |integer|           |
 
 ### Association
 - has_many: users, through: user_gift_parchases
-- has_one: shipping_method
 - has_many: images
-- has_many: listings
+- has_one: category
+- has_one: listing
 
 ## imagesテーブル
 |Column |Type   |Options    |
@@ -154,14 +158,12 @@ Things you may want to cover:
 ### Association
 - belongs_to: gift
 
-## shipping_methodテーブル
-|Column         |Type   |Options    |
-|---------------|-------|-----------|
-|gift_id        |integer|null: false, foreign_key: true|
-|shipping_charge|string |null: false|
-|how_to_ship    |string |null: false|
-|sender_region  |string |null: false|
-|days_to_ship   |string |null: false|
+## categoryテーブル
+|Column   |Type   |Options    |
+|---------|-------|-----------|
+|path     |integer|null: false|
+|name     |string |null: false|
+|ancestory|string |           |
 
 ### Association
 - belongs_to : gift
