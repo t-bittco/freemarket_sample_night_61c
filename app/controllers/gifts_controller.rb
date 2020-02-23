@@ -13,6 +13,6 @@ class GiftsController < ApplicationController
 
   private
   def gift_params
-    params.require(:gift).permit(:name, :discription, :category, :child_category, :grand_category, :state, :price)
+    params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :state, :price, :category_id, :image_id)
   end
 end
