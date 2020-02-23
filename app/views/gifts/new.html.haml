@@ -7,12 +7,18 @@
   -#   %br
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
-  %label "カテゴリー"
-  = f.select :category, placeholder: "Choose Category!"
-  %label 子カテゴリー
-  =f.text_field :child_category
-  %label 孫カテゴリー
-  =f.text_field :grand_category
+  -# %label "カテゴリー"
+  -# = f.select :category, placeholder: "Choose Category!"
+  -#   - @parents.each do |parent|
+  -#     = parent.name
+  -# %label 子カテゴリー
+  -# = f.select :category, placeholder: "Choose Category!"
+  -#   - @children.each do |child|
+  -#     = child.name
+  -# %label 孫カテゴリー
+  -# = f.select :category, placeholder: "Choose Category!"
+  -#   - @children.each do |child|
+  -#     = child.name
   %label "商品の状態"
   = f.text_field :state, placeholder: "Choose State Of Your Gift"
   %label "配送料の負担"
