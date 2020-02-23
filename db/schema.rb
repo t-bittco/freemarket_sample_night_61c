@@ -10,18 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_061918) do
+ActiveRecord::Schema.define(version: 2020_02_23_063657) do
 
   create_table "gifts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "discription", null: false
-    t.text "category", null: false
     t.text "state", null: false
     t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "child_category"
-    t.string "grand_category"
+    t.string "shipping_charge"
+    t.string "how_to_ship"
+    t.string "sender_region"
+    t.string "days_to_ship"
+    t.integer "gift_id"
+    t.integer "category_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
