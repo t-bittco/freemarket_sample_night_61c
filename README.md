@@ -159,11 +159,11 @@ Things you may want to cover:
 - belongs_to: gift
 
 ## categoryテーブル
-|Column   |Type   |Options    |
-|---------|-------|-----------|
-|path     |integer|null: false|
-|name     |string |null: false|
-|ancestory|string |           |
+|Column  |Type   |Options    |
+|--------|-------|-----------|
+|path    |integer|null: false|
+|name    |string |null: false|
+|ancestry|string |           |
 
 ### Association
 - belongs_to : gift
