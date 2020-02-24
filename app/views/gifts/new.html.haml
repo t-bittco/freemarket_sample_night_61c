@@ -1,10 +1,9 @@
 = form_for :gift, url:gifts_path do |f|
   %label "商品名"
   = f.text_field :name, placeholder: "Until 40"
-  -# = f.fields_for :images do |i|
-  -#   %label "出品画像"
-  -#   = i.file_field :name
-  -#   %br
+  = f.fields_for :images do |i|
+    %label "出品画像"
+    = i.file_field :name
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
   %label "カテゴリー"
