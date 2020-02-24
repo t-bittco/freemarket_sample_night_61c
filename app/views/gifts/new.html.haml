@@ -8,7 +8,7 @@
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
   %label "カテゴリー"
-  = f.select :category, options_for_select(@parents.map{|p|[p[:name]]},{})
+  = f.select :category, options_for_select(@category_parent_array), {}, {class: "parent"}
   %label "商品の状態"
   = f.text_field :state, placeholder: "Choose State Of Your Gift"
   %label "配送料の負担"
