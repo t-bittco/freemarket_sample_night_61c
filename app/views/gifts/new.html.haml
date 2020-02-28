@@ -6,8 +6,14 @@
   -#   = i.file_field :name, multiple: true, class: 'image-upload-dropfile hidden', type: 'file'
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
-  %label "カテゴリー"
-  = f.select :category_id, options_for_select(@category_parent_array), {}, {class: "parent"}
+  .listing-form-box
+  .listing-product-detail__category
+    = f.label 'カテゴリー', class: 'listing-default__label'
+    %span.listing-default--require 必須
+    .listing-select-wrapper
+      .listing-select-wrapper__box
+        = f.select :category_id, options_for_select(@category_parent_array), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+        %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
   %label "商品の状態"
   = f.text_field :state, placeholder: "Choose State Of Your Gift"
   %label "配送料の負担"
