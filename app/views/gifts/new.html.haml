@@ -1,13 +1,13 @@
 = form_for :gift, url:gifts_path do |f|
   %label "商品名"
   = f.text_field :name, placeholder: "Until 40"
-  = f.fields_for :images do |i|
-    %label "出品画像"
-    = i.file_field :name
+  %label "出品画像"
+  -# = f.fields_for :images do |i|
+  -#   = i.file_field :name, multiple: true, class: 'image-upload-dropfile hidden', type: 'file'
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
-  %label "カテゴリー"
-  = f.select :category, options_for_select(@category_parent_array), {}, {class: "parent"}
+  -# %label "カテゴリー"
+  -# = f.select :category_id, options_for_select(@category_parent_array), {}, {class: "parent"}
   %label "商品の状態"
   = f.text_field :state, placeholder: "Choose State Of Your Gift"
   %label "配送料の負担"

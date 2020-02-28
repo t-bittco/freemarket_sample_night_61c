@@ -3,23 +3,27 @@ class GiftsController < ApplicationController
     @gift = Gift.includes(:images).order("created_at DESC")
   end
   def new
-    @parents = Category.all.order("id ASC").limit(13)
-    @category_parent_array = ["---"]
-    @parents.each do |parent|
-      @category_parent_array << parent.name
-    end
-    binding.pry
+    # @category_parent_array = ["---"]
+    # Category.where(ancestry: "nil").each do |parent|
+    #   @category_parent_array << parent.name
+    # end
     @gift = Gift.new
-    @gift.images.build
+    @gift.images.new
   end
   def create
-    @gift = Gift.new(gift_params)
-    @gift.images.new(gift_params)
-    @gift.save
+    @gift = Gift.create(gift_params)
+    # images_params[:file].original_filename.each do |i|
+    #   if i != nil
+    #     @gift.images.create
+    #   end
+    # end
   end
 
   private
   def gift_params
-    params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :days_to_ship, :state, :price, images_attributes: [:name])
+    params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :days_to_ship, :state, :price, :category_id)
+  end
+  def images_params
+    params.require(:gift).permit(images_attributes:[:name])
   end
 end
