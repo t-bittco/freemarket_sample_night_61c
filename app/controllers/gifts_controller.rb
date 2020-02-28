@@ -3,10 +3,10 @@ class GiftsController < ApplicationController
     @gift = Gift.includes(:images).order("created_at DESC")
   end
   def new
-    # @category_parent_array = ["---"]
-    # Category.where(ancestry: "nil").each do |parent|
-    #   @category_parent_array << parent.name
-    # end
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
     @gift = Gift.new
     @gift.images.new
   end
