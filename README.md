@@ -49,7 +49,7 @@ Things you may want to cover:
 - has_many; evaluations
 - has_many: gifts, through: like_history_flags
 
-## user_adressテーブル
+## user_addressテーブル
 |Column       |Type   |Options    |
 |-------------|-------|-----------|
 |user_id      |integer|null: false|
