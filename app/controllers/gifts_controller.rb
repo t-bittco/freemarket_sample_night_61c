@@ -29,7 +29,4 @@ class GiftsController < ApplicationController
   def gift_params
     params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :days_to_ship, :state, :price, :category_id,images_attributes: [:name])
   end
-  # def images_params
-  #   params.require(:gift).permit(images_attributes: [:name])
-  # end
 end
