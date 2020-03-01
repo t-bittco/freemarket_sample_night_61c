@@ -1,6 +1,6 @@
 class GiftsController < ApplicationController
   def index
-    @gift = Gift.includes(:images).order("created_at DESC")
+    @gifts = Gift.includes(:images).order("created_at DESC")
   end
   def new
     @category_parent_array = ["---"]
@@ -17,19 +17,19 @@ class GiftsController < ApplicationController
     @gift.images.new
   end
   def create
-    @gift = Gift.create(gift_params)
-    # images_params[:file].original_filename.each do |i|
-    #   if i != nil
-    #     @gift.images.create
-    #   end
-    # end
+    @gift = Gift.new(gift_params)
+    if @gift.save
+      render :create
+    else
+      render :new
+    end
   end
 
   private
   def gift_params
-    params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :days_to_ship, :state, :price, :category_id)
+    params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :days_to_ship, :state, :price, :category_id,images_attributes: [:name])
   end
-  def images_params
-    params.require(:gift).permit(images_attributes:[:name])
-  end
+  # def images_params
+  #   params.require(:gift).permit(images_attributes: [:name])
+  # end
 end

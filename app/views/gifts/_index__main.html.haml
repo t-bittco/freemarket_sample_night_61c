@@ -27,7 +27,10 @@
       .titles__more
         = link_to "もっと見る", root_path
     .items
-      .items__item
+      - @gifts.each do |g|
+        .items__item
+          -# %p g.name
+          -# %p g.price
   .popular-brands
     .popular-brands__title
       人気ブランド
