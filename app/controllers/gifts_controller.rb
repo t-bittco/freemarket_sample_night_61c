@@ -4,7 +4,7 @@ class GiftsController < ApplicationController
   end
   def new
     @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
+    Category.where(ancestry: nil).limit(13).each do |parent|
       @category_parent_array << parent.name
     end
     def get_category_children
