@@ -1,12 +1,14 @@
+// 画面のロードが終わったら発火するイベント
 $(document).on('ready page:load', function(){
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
+    // span class: "js-remove" はdivでも良さそうだが、inline要素として、filenameの隣に並べるにはspanclassが良い
     const html = `<div data-index="${num}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="gift[images_attributes][${num}][name]"
-                    id="gift_images_attributes_${num}_name"><br>
-                    <div class="js-remove">削除</div>
+                    id="gift_images_attributes_${num}_name"><span class="js-remove">削除</span>
                   </div>`;
+    // 変数htmlを返す
     return html;
   }
   // プレビュー用のimgタグを生成する関数
@@ -15,14 +17,19 @@ $(document).on('ready page:load', function(){
     return html;
   }
 
+  const sayNo = ()=> {
+    const html = '<span> これ以上はむーり </sapn>'
+    return html;
+  } 
+
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
-
+  // '.hidden-destroy'classを隠す 
   $('.hidden-destroy').hide();
-
+  // id: image-box の中身が変化した時に、イベントが発火し、js-fileが変化する
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
@@ -31,8 +38,11 @@ $(document).on('ready page:load', function(){
 
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
+      // .setAttribute(name, value)
+      // 第一引数に属性の名前を文字列で指定
+      // 第二引数に属性に指定したい値を指定する
       img.setAttribute('name', blobUrl);
-    } else {  // 新規画像追加の処理
+    } else {
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
@@ -53,6 +63,7 @@ $(document).on('ready page:load', function(){
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0 )
+      $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });

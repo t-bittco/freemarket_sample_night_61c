@@ -1,6 +1,7 @@
 = form_for(@gift) do |f|
   %label "商品名"
   = f.text_field :name, placeholder: "Until 40"
+  %br
   %label 商品画像
   #image-box
     #previews
@@ -16,7 +17,8 @@
     - if @gift.persisted?
       .js-file_group{data: {index: "#{@gift.images.count}"}}
         = file_field_tag :name, name: "gift[images_attributes][#{@gift.images.count}][name]", class: 'js-file'
-        .js-remove 削除
+        %span.js-remove 削除
+  %br
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
   .listing-form-box
@@ -25,16 +27,23 @@
     .listing-select-wrapper
       .listing-select-wrapper__box
         = f.select :category, options_for_select(@category_parent_array), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+  %br
   %label "商品の状態"
   = f.text_field :state, placeholder: "Choose State Of Your Gift"
+  %br
   %label "配送料の負担"
   = f.text_field :shipping_charge, placeholder: "Who"
+  %br
   %label "配送方法"
   = f.text_field :how_to_ship
+  %br
   %label "発送元地域"
   = f.text_field :sender_region
+  %br
   %label "発送までの日数"
   = f.text_field :days_to_ship
+  %br
   %label "販売価格"
   = f.number_field :price, placeholder: "Type Price Of Your Gift"
+  %br
   = f.submit "出品する"
