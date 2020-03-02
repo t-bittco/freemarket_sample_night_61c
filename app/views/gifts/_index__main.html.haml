@@ -32,6 +32,8 @@
           = gift.name
           = gift.images.each do |image| 
             = image_tag image.name.url
+            = link_to '編集', edit_gift_path(gift)
+            = link_to '削除', gift_path(gift), method: :delete
   .popular-brands
     .popular-brands__title
       人気ブランド

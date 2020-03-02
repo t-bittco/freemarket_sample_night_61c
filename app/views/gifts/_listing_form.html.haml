@@ -4,19 +4,19 @@
   %label 商品画像
   #image-box
     #previews
-      -# - if @gift.persisted?
-      -#   - @gift.images.each_with_index do |image, i|
-      -#     = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
+      - if @gift.persisted?
+        - @gift.images.each_with_index do |image, i|
+          = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
     = f.fields_for :images do |image|
       .js-file_group{data: {index: "#{image.index}"}} 
         = image.file_field :name, class: 'js-file'
         %span.js-remove 削除
       - if @gift.persisted?
         = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-    -# - if @gift.persisted?
-    -#   .js-file_group{data: {index: "#{@gift.images.count}"}}
-    -#     = file_field_tag :name, name: "gift[images_attributes][#{@gift.images.count}][name]", class: 'js-file'
-    -#     .js-remove 削除
+    - if @gift.persisted?
+      .js-file_group{data: {index: "#{@gift.images.count}"}}
+        = file_field_tag :name, name: "gift[images_attributes][#{@gift.images.count}][name]", class: 'js-file'
+        .js-remove 削除
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
   .listing-form-box
