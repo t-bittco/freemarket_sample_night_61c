@@ -50,6 +50,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -79,3 +83,8 @@ gem 'mini_magick'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'antivirus'
+gem 'active_hash'
+gem 'recaptcha', require: "recaptcha/rails"
+# gem "omniauth-rails_csrf_protection"

@@ -1,6 +1,28 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get '/signup/done', to: 'signup#done'
+  get '/signup/index', to: 'signup#index'
+  get '/addresses/new', to: 'addresses#step3'
+  
+
+  devise_for :users,
+  controllers: {
+  sessions: 'users/sessions',
+  registrations: "users/registrations",
+  # omniauth_callbacks: 'users/omniauth_callbacks'
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
+  
+  resources :signup do
+    collection do
+      get 'index'
+      get 'done' 
+    end
+  end
 
+  devise_scope :user do
+    get    'users/signup/registration',   to: 'users/registrations#step1'
+    get    'users/signup/sms_confirmation',      to: 'users/registrations#step2'
+  end
+  resources :addresses,only:[:create,:update]
 end
