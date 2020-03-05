@@ -2,7 +2,7 @@ class AddressesController < ApplicationController
   before_action :authenticate_user!
   def step3
     @address = Address.new
-    # binding.pry
+    
   end
 
   def create
@@ -13,8 +13,7 @@ class AddressesController < ApplicationController
     else
       render "step3"
     end
-    # @address.save
-    # redirect_to controller: '/signup', action: 'done'
+    
     
     
   end
@@ -30,8 +29,7 @@ class AddressesController < ApplicationController
 
   private
   def address_params
-    # binding.pry
-    # params.require(:address).permit(:postal_code, :city, :prefecture, :street, :building).merge(user_id: current_user.id)
+    
     params.require(:address).permit(:postal_code, :city, :prefecture, :street, :building).merge(user_id: current_user.id)
     
   end

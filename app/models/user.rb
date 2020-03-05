@@ -16,17 +16,5 @@ class User < ApplicationRecord
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
 
   validates :telephone, presence: true, length: { maximum: 11 },format: { with: VALID_PHONE_REGEX }
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  # devise :database_authenticatable, :registerable,
-  #        :recoverable, :rememberable, :validatable,
-        #  :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-end
-
-# has_many :sns_credentials, dependent: :destroy
-  # has_many :products,dependent: :destroy
-  # has_many :cards,dependent: :destroy
-  # has_many :addresses,dependent: :destroy
-  # has_many :comments 
-
   
+end

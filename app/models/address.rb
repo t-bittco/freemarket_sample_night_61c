@@ -8,7 +8,7 @@ class Address < ApplicationRecord
   validates :postal_code, length: { maximum: 10 },presence: true,format: { with: postal}
   validates :prefecture, presence: true
   validates :city, presence: true
-  # validates :street, presence: true
+  
   validates :user_id, presence: true
   
   
