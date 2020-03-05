@@ -16,6 +16,6 @@
           %i.far.fa-caret-square-down
       %ul.right-menu
         %li.right-menu__sign_up
-          %p 新規会員登録
+          = link_to "新規会員登録",signup_index_path, class: "btn registration"
         %li.right-menu__sigin_in
-          %p ログイン
+          = link_to "ログイン",new_user_session_path, class: "btn session"
