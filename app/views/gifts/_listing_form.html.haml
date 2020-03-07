@@ -26,7 +26,7 @@
       .listing-default__label{label: 'カテゴリー'} 
       .listing-select-wrapper
         .listing-select-wrapper__box
-          %select{name: "category_parent", class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+          %select{class: 'listing-select-wrapper__box--select', id: 'parent_category'}
             - @category_parent_array.each do |parent|
               %option #{parent}
   %br

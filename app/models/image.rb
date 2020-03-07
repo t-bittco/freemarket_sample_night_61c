@@ -6,5 +6,6 @@ class Image < ApplicationRecord
   def check_number_of_images
     if gift && gift.images.count > 10
       errors.add(:gift, "イメージ保存は10枚まで")
+    end
   end
 end
