@@ -129,19 +129,22 @@ Things you may want to cover:
 # gifts
 
 ## giftsテーブル
-|Column         |Type   |Options    |
-|---------------|-------|-----------|
-|name           |string |null: false|
-|description    |text   |null: false|
-|shipping_charge|string |null: false|
-|how_to_ship    |string |null: false|
-|sender_region  |string |null: false|
-|days_to_ship   |string |null: false|
-|state          |text   |null: false|
-|price          |integer|null: false|
-|user_id        |integer|           |
-|gift_id        |integer|           |
-|category_id    |integer|           |
+|Column         |Type   |Options                       |
+|---------------|-------|------------------------------|
+|name           |string |null: false                   |
+|description    |text   |null: false                   |
+|shipping_charge|string |null: false                   |
+|how_to_ship    |string |null: false                   |
+|sender_region  |string |null: false                   |
+|days_to_ship   |string |null: false                   |
+|state          |text   |null: false                   |
+|price          |integer|null: false                   |
+|user_id        |integer|null: false                   |
+|category_id    |integer|null: false                   |
+|buyer_id       |integer|null: false, foreign_key: true|
+|listing_state  |string |------------------------------|
+
+
 
 ### Association
 - has_many: users, through: user_gift_parchases
@@ -184,9 +187,7 @@ Things you may want to cover:
 |------------|-------|--------------------------------------------|
 |user_gift_purchases_id|integer|null: false, foreign_key: true              |
 |gift_id     |integer|null: false, foreign_key: true              |
-|buyer_id    |integer|null: false, foreign_key: { to_table :User }|
 |seller_id   |integer|null: false, foreign_key: { to_table :User }|
-|state       |string |--------------------------------------------|
 
 ### Association
 - belongs_to: user_gift_purchase
