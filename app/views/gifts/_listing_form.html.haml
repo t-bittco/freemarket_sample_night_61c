@@ -22,11 +22,13 @@
   %label "商品説明"
   = f.text_field :discription, placeholder: "Please Discript Your Gift!"
   .listing-form-box
-  .listing-product-detail__category
-    = f.label 'カテゴリー', class: 'listing-default__label'
-    .listing-select-wrapper
-      .listing-select-wrapper__box
-        = f.select :category, options_for_select(@category_parent_array), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+    .listing-product-detail__category
+      .listing-default__label{label: 'カテゴリー'} 
+      .listing-select-wrapper
+        .listing-select-wrapper__box
+          %select{name: "category_parent", class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+            - @category_parent_array.each do |parent|
+              %option #{parent}
   %br
   %label "商品の状態"
   = f.text_field :state, placeholder: "Choose State Of Your Gift"
