@@ -142,9 +142,7 @@ Things you may want to cover:
 |user_id        |integer|null: false                   |
 |category_id    |integer|null: false                   |
 |buyer_id       |integer|null: false, foreign_key: true|
-|listing_state  |string |------------------------------|
-
-
+|listing_state  |integer|------------------------------|
 
 ### Association
 - has_many: users, through: user_gift_parchases
