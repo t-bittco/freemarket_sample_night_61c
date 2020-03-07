@@ -1,4 +1,6 @@
-factory :image do
-  gift_id       {"4"}
-  name          {"pictweet.jpg"}
+FactoryBot.define do
+  factory :image do
+    gift_id       {"4"}
+    name          {"pictweet.jpg"}
+  end
 end

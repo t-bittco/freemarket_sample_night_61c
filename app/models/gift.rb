@@ -12,4 +12,5 @@ class Gift < ApplicationRecord
   validates :sender_region, presence: true
   validates :days_to_ship, presence: true
   validates :category_id, presence: true
+  validates :listing_state, presence: true
 end
