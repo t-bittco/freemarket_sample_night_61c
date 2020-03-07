@@ -181,20 +181,6 @@ Things you may want to cover:
 - belongs_to: user
 - belongs_to: gift
 
-
-## listingsテーブル
-|Column      |Type   |Options                                     |
-|------------|-------|--------------------------------------------|
-|user_gift_purchases_id|integer|null: false, foreign_key: true              |
-|gift_id     |integer|null: false, foreign_key: true              |
-|seller_id   |integer|null: false, foreign_key: { to_table :User }|
-
-### Association
-- belongs_to: user_gift_purchase
-- belongs_to: gift
-- belongs_to: buyer_id, class_name: "User"
-- belongs_to: seller_id, class_name: "User" 
-
 ## like_history_flagsテーブル
 |Column      |Type   |Options          |
 |------------|-------|-----------------|
