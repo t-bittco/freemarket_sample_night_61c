@@ -3,7 +3,7 @@ class Gift < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  validates :name, presence: true, length: { maximum: 40 }
+  validates :name, length: { in: 1..40 }
   validates :discription, presence: true
   validates :state, presence: true
   validates :price, presence: true
@@ -13,4 +13,5 @@ class Gift < ApplicationRecord
   validates :days_to_ship, presence: true
   validates :category_id, presence: true
   validates :listing_state, presence: true
+  validates_associated :images
 end
