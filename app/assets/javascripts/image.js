@@ -16,12 +16,6 @@ $(document).on('ready page:load', function(){
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
     return html;
   }
-
-  const sayNo = ()=> {
-    const html = '<span> これ以上はむーり </sapn>'
-    return html;
-  } 
-
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
@@ -45,7 +39,9 @@ $(document).on('ready page:load', function(){
     } else {
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      $('#image-box').append(buildFileField(fileIndex[0]));
+      if ($('.js-file').length == 0 || $('.js-file').length < 10) {
+        $('#image-box').append(buildFileField(fileIndex[0]));
+      }
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
@@ -63,7 +59,8 @@ $(document).on('ready page:load', function(){
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0 )
+    if ($('.js-file').length == 0 || $('.js-file').length < 10) {
       $('#image-box').append(buildFileField(fileIndex[0]));
+    }
   });
 });
