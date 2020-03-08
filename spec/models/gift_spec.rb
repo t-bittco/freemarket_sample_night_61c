@@ -6,6 +6,11 @@ describe Gift do
       gift = build(:gift)
       expect(gift).to be_valid
     end
+    it "is valid with images" do
+      gift = build(:gift)
+      images = build(:image, gift_id: "3", name: "dgag")
+      expect(images).to be_valid
+    end
     it "is invalid without a name" do
       gift = build(:gift, name: nil)
       gift.valid?

@@ -14,4 +14,11 @@ class Gift < ApplicationRecord
   validates :category_id, presence: true
   validates :listing_state, presence: true
   validates_associated :images
+  validate :count_images
+
+  private
+  def count_images
+    errors.add(:image, "は1枚以上") if images.size < 0
+    eorros.add(:image, "は10枚以下") if images.size > 10
+  end
 end
