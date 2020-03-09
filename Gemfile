@@ -56,6 +56,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -88,3 +92,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'ancestry'
 gem 'jquery-rails'
+gem 'antivirus'
+gem 'active_hash'
+gem 'recaptcha', require: "recaptcha/rails"
+# gem "omniauth-rails_csrf_protection"
