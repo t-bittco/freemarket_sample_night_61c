@@ -8,7 +8,7 @@ describe Gift do
     end
     it "is valid with images" do
       gift = build(:gift)
-      images = build(:image, gift_id: "3", name: "dgag")
+      images = build(:image)
       expect(images).to be_valid
     end
     it "is invalid without a name" do
