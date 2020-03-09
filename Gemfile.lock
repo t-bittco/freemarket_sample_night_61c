@@ -343,8 +343,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ancestry
   active_hash
+  ancestry
   antivirus
   bootsnap (>= 1.1.0)
   byebug
