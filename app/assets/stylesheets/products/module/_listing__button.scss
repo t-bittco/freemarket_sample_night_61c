@@ -1,0 +1,26 @@
+a{
+  color: white;
+  .listing-button{
+    height: 80px;
+    width: 80px;
+    background-color: teal;
+    border-radius: 100px;
+    margin: 20px;
+    padding: 10px;
+    position: fixed;
+    bottom: 4px;
+    right: 4px;
+    z-index: 2;
+    .btn-icon{
+      padding-top: 15px;
+      @include textbox-centerise();
+      .fas fa-shopping-cart fa-2x fa-spin{
+      }
+    }
+    p{
+      font-size: 13px;
+      padding-top: 3px;
+      @include textbox-centerise();
+    } 
+  }
+}
