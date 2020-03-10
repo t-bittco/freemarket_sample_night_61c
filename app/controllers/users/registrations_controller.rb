@@ -43,13 +43,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    # if session[:provider].present? && session[:uid].present?#もしoath認証されていたら
-    #   password = Devise.friendly_token.first(7)
-    #   @user = User.create(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birth_day: session[:birth_day], tel: params[:user][:telephone])
-    #   sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
-    # else#email認証だったら
-    @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birth_day: session[:birth_day], telephone: params[:user][:telephone])
-    # end
+    if session[:provider].present? && session[:uid].present?#もしoath認証されていたら
+      password = Devise.friendly_token.first(7)
+      @user = User.create(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birth_day: session[:birth_day], telephone: params[:user][:telephone])
+      sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
+    else#email認証だったら
+      @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birth_day: session[:birth_day], telephone: params[:user][:telephone])
+    end
 
   
     
@@ -61,10 +61,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       render "step1"
     end
-    # @user.save
-    # redirect_to controller: '/addresses', action: 'step3'
-    # sign_in(@user)
-    # bypass_sign_in(@user)
+    
     
     
     

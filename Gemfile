@@ -87,4 +87,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'antivirus'
 gem 'active_hash'
 gem 'recaptcha', require: "recaptcha/rails"
-# gem "omniauth-rails_csrf_protection"
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+
+
