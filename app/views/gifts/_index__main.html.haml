@@ -36,6 +36,7 @@
           = Category.find("#{gift.category_id}").parent.parent.name
           = Category.find("#{gift.category_id}").parent.name
           = Category.find("#{gift.category_id}").name
+          = Brand.find("#{gift.brand_id}").name
   .popular-brands
     .popular-brands__title
       人気ブランド
