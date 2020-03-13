@@ -129,37 +129,42 @@ Things you may want to cover:
 # gifts
 
 ## giftsテーブル
-|Column     |Type   |Options    |
-|-----------|-------|-----------|
-|name       |string |null: false|
-|description|text   |null: false|
-|category   |text   |null: false|
-|state      |text   |null: false|
-|price      |integer|null: false|
+|Column         |Type   |Options                       |
+|---------------|-------|------------------------------|
+|name           |string |null: false                   |
+|description    |text   |null: false                   |
+|shipping_charge|string |null: false                   |
+|how_to_ship    |string |null: false                   |
+|sender_region  |string |null: false                   |
+|days_to_ship   |string |null: false                   |
+|state          |text   |null: false                   |
+|price          |integer|null: false                   |
+|user_id        |integer|null: false                   |
+|category_id    |integer|null: false                   |
+|buyer_id       |integer|null: false, foreign_key: true|
+|listing_state  |integer|------------------------------|
 
 ### Association
-- has_many: users, through: like_history_flags
-- has_many: shipping_method
+- has_many: users, through: user_gift_parchases
 - has_many: images
-- has_many: listings
+- has_one: category
+- has_one: listing
 
 ## imagesテーブル
 |Column |Type   |Options    |
 |-------|-------|-----------|
 |name   |string |null: false|
-|gift_id|integer|null: false|
+|gift_id|integer|null: false,foreign_key: true|
 
 ### Association
 - belongs_to: gift
 
-## shipping_methodテーブル
-|Column         |Type   |Options    |
-|---------------|-------|-----------|
-|gift_id        |integer|null: false|
-|shipping_charge|integer|null: false|
-|how_to_ship    |string |null: false|
-|sender_region  |string |null: false|
-|days_to_ship   |integer|null: false|
+## categoryテーブル
+|Column  |Type   |Options    |
+|--------|-------|-----------|
+|path    |integer|null: false|
+|name    |string |null: false|
+|ancestry|string |           |
 
 ### Association
 - belongs_to : gift
@@ -173,22 +178,6 @@ Things you may want to cover:
 ### Association
 - belongs_to: user
 - belongs_to: gift
-
-
-## listingsテーブル
-|Column      |Type   |Options                                     |
-|------------|-------|--------------------------------------------|
-|user_gift_id|integer|null: false, foreign_key: true              |
-|gift_id     |integer|null: false, foreign_key: true              |
-|buyer_id    |integer|null: false, foreign_key: { to_table :User }|
-|seller_id   |integer|null: false, foreign_key: { to_table :User }|
-|state       |string |--------------------------------------------|
-
-### Association
-- belongs_to: user_gift_purchases
-- belongs_to: gift
-- belongs_to: buyer_id, class_name: "User"
-- belongs_to: seller_id, class_name: "User" 
 
 ## like_history_flagsテーブル
 |Column      |Type   |Options          |
