@@ -39,7 +39,7 @@
   .form-brand
     = f.label :brand_id, "ブランド"
     %br
-    = f.text_field :brand_id 
+    = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id]]}, 0), {}, {class: 'hoge', id: 'hogehoge'}
   %br
   .form-state
     = f.label :state, "商品の状態"

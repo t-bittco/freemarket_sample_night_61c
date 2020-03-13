@@ -14,6 +14,10 @@ class GiftsController < ApplicationController
     def get_category_grandchildren
       @category_grandchildren = Category.find("#{params[:child_id]}").children
     end
+    @brands = [{name: "---", id: 0}]
+    Brand.all.each do |b|
+      @brands << {name: "#{b.name}", id: "#{b.id}"}
+    end
     @gift = Gift.new
     @gift.images.new
   end
