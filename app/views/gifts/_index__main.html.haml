@@ -28,12 +28,15 @@
         = link_to "もっと見る", root_path
     .items
       - @gifts.each do |gift|
-        .items__item
+        .items_item
           = gift.name
-          = gift.images.each do |image| 
-            = image_tag image.name.url
-            = link_to '編集', edit_gift_path(gift)
-            = link_to '削除', gift_path(gift), method: :delete
+          = image_tag Image.find_by(gift_id: "#{gift.id}").name.url
+          = link_to '編集', edit_gift_path(gift)
+          = link_to '削除', gift_path(gift), method: :delete
+          = Category.find("#{gift.category_id}").parent.parent.name
+          = Category.find("#{gift.category_id}").parent.name
+          = Category.find("#{gift.category_id}").name
+          = Brand.find("#{gift.brand_id}").name
   .popular-brands
     .popular-brands__title
       人気ブランド
