@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2020_03_12_112727) do
     t.string "f_name_kana", limit: 15, default: "", null: false
     t.string "l_name_kana", limit: 15, default: "", null: false
     t.date "birth_day", null: false
-    t.string "telephone"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
