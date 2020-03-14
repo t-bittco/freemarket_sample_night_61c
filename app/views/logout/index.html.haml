@@ -1,0 +1,13 @@
+= render partial: "shared/header"
+- breadcrumb :logout
+= render partial: "shared/breadcrumb"
+.logout-main
+  .mypage-main-content
+    = render 'mypages/modules/mypage-sidebar'
+
+    .logout-content
+      .logout-btn
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+= render "shared/sell-btn"
+= render "shared/footer"

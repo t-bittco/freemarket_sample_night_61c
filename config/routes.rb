@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'logout/index'
   get '/signup/done', to: 'signup#done'
   get '/signup/index', to: 'signup#index'
   get '/addresses/new', to: 'addresses#step3'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   controllers: {
   sessions: 'users/sessions',
   registrations: "users/registrations",
+  omniauth_callbacks: 'users/omniauth_callbacks'
   # omniauth_callbacks: 'users/omniauth_callbacks'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -31,4 +33,5 @@ Rails.application.routes.draw do
     get    'users/signup/sms_confirmation',      to: 'users/registrations#step2'
   end
   resources :addresses,only:[:create,:update]
+  resources :logout, only: [:index]
 end
