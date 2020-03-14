@@ -37,10 +37,10 @@ Things you may want to cover:
 |last_name_kana |string |null: false|
 |first_name_kana|string |null: false|
 |birth_day      |integer|null: false|
-|profile        |text   |-----------|
+|telephone      |string |null: false|
 
 ### Association
-- has_many: user_adress
+- has_many: user_addreses
 - has_many: shipper_regions
 - has_many: creditcards
 - has_many: sns_credentials
@@ -49,7 +49,7 @@ Things you may want to cover:
 - has_many; evaluations
 - has_many: gifts, through: like_history_flags
 
-## user_addressテーブル
+## user_addresesテーブル
 |Column       |Type   |Options    |
 |-------------|-------|-----------|
 |user_id      |integer|null: false|
@@ -62,19 +62,6 @@ Things you may want to cover:
 ### Association
 - belongs_to: user
 
-## shipper_regionsテーブル
-|Column       |Type   |Options    |
-|-------------|-------|-----------|
-|user_id      |integer|null: false|
-|postal_code  |integer|null: false|
-|province     |string |null: false|
-|city         |string |null: false|
-|adress       |string |null: false|
-|building_name|string |-----------|
-|phone_number |integer|-----------|
-
-### Association
-- belongs_to: user
 
 ## creditcardsテーブル
 |Column         |Type   |Options                       |
