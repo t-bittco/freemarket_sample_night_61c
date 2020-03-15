@@ -1,5 +1,5 @@
 class GiftsController < ApplicationController
-  # before_action :set_gift, except: [:index, :new, :create]
+  before_action :get_gift, except: [:index, :new, :create]
   def index
     @gifts = Gift.includes(:images).order("created_at DESC")
   end
@@ -29,6 +29,8 @@ class GiftsController < ApplicationController
       render :new
     end
   end
+  def edit
+  end
   def update
     if @gift.update(gift_params)
       redirect_to root_path
@@ -44,5 +46,8 @@ class GiftsController < ApplicationController
   private
   def gift_params
     params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :days_to_ship, :state, :price, :category_id, :listing_state, :user_id, :brand_id, images_attributes: [:name, :_destroy, :id])
+  end
+  def get_gift
+    @gift = Gift.find(params[:id])
   end
 end
