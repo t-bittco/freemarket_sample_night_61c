@@ -5,8 +5,8 @@ class GiftsController < ApplicationController
   end
   def new
     @category_parent_array = ["---"]
-    Category.where(ancestry: nil).limit(13).each do |parent|
-      @category_parent_array << parent.name
+    Category.where(ancestry: nil).pluck(:name).each do |parent|
+      @category_parent_array << parent
     end
     def get_category_children
       @category_children = Category.find_by(name: "#{params[:parent_name]}").children
@@ -31,8 +31,8 @@ class GiftsController < ApplicationController
   end
   def edit
     @category_parent_array = ["---"]
-    Category.where(ancestry: nil).limit(13).each do |parent|
-      @category_parent_array << parent.name
+    Category.where(ancestry: nil).pluck(:name).each do |parent|
+      @category_parent_array << parent
     end
     @category_children = Category.find(@gift.category_id).parent.parent.children
     def get_category_children
