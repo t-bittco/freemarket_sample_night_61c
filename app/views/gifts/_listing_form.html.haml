@@ -47,9 +47,9 @@
               %option ---
               - @category_children.each do |c|
                 - if "#{c.name}" == Category.find(@gift.category_id).parent.name
-                  %option{data: {category: "#{c.name}"}, selected: "selected" } #{c.name}
+                  %option{data: {category: "#{c.id}"}, selected: "selected" } #{c.name}
                 - else
-                  %option{data: {category: "#{c.name}"} } #{c.name}
+                  %option{data: {category: "#{c.id}"} } #{c.name}
         #grandchildren_wrapper.listing-select-wrapper__added
           #listing-select-wrapper__box.listing-select-wrapper__box
             %select#grandchild_category.listing-select-wrapper__box--select{name: "gift[category_id]" }
@@ -69,7 +69,10 @@
   .form-brand
     = f.label :brand_id, "ブランド"
     %br
-    -# = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id]]}, 0), {}, {class: 'hoge', id: 'hogehoge'}
+    - if @gift.persisted?
+      = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id], {'data-sample'=>c[:id]}]}, @gift.brand_id), {}, {class: 'brand-box', id: 'brand-box'}
+    - else
+      = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id]]}, 0), {}, {class: 'brand-box', id: 'brand-box'}
   %br
   .form-state
     = f.label :state, "商品の状態"
