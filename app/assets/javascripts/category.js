@@ -14,7 +14,7 @@ $(function(){
     childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                         <div class='listing-select-wrapper__box'>
                           <select class="listing-select-wrapper__box--select" id="child_category">
-                            <option value="---" data-category="---">---</option>
+                            <option data-category="---">---</option>
                             ${insertHTML}
                           <select>
                         </div>
@@ -34,17 +34,10 @@ $(function(){
                             </div>`;
     $('.listing-product-detail__category').append(grandchildSelectHtml);
   }
-  // function appendHiddenForm(insertHTML){
-  //   var selectedHTML = '';
-  //   selectedHTML = `<input name="category_id">
-  //                     ${insertHTML}
-  //                   </input>`;
-  //   $('#listing-select-wrapper').append(selectedHTML);
-  // }
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
-    var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
-    if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+    var parentCategory = document.getElementById('parent_category').value; 
+    if (parentCategory != "---"){
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
@@ -74,8 +67,8 @@ $(function(){
   });
   // 子カテゴリー選択後のイベント
   $('.listing-product-detail__category').on('change', '#child_category', function(){
-    var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
-    if (childId != "---"){ //子カテゴリーが初期値でないことを確認
+    var childId = $('#child_category option:selected').data('category');
+    if (childId != "---"){
       $.ajax({
         url: 'get_category_grandchildren',
         type: 'GET',
@@ -103,8 +96,4 @@ $(function(){
       $('#brand_wrapper').remove();
     }
   });
-  // $('#listing-select-wrapper__box').on('change', function(){
-  //   const insertHTML = $('#grandchild_category option:selected').val();
-  //   appendHiddenForm(insertHTML);
-  // });
 });

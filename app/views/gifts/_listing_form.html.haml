@@ -1,15 +1,17 @@
 = form_for(@gift) do |f|
-  .form-name
+  .name-form
     = f.label :name, "商品名"
     %br
     = f.text_field :name, placeholder: "Until 40",label: "商品名"
   %br
-  .form-image
+  .image-form
     #image-box
+      #image-labels
+        %label 商品画像
       #previews
-        - @gift.images.each_with_index do |image, i|
-          = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
-      %label 商品画像
+        - if @gift.persisted?
+          - @gift.images.each_with_index do |image, i|
+            = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
       = f.fields_for :images do |image|
         .js-file_group{data: {index: "#{image.index}" } }
           = image.file_field :name, class: 'js-file'
@@ -21,19 +23,48 @@
           = file_field_tag :name, name: "gift[images_attributes][#{@gift.images.count}][name]", class: 'js-file'
           %button.js-remove 削除
   %br
-  .form-discription
+  .discription-form
     = f.label :discription, "商品説明"
     %br
     = f.text_field :discription, placeholder: "Please Discript Your Gift!"
-  .listing-form-box
-    %label カテゴリー
-    -# .listing-product-detail__category
-    -#   .listing-default__label 
-    -#   .listing-select-wrapper
-    -#     .listing-select-wrapper__box
-    -#       %select{class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-    -#         - @category_parent_array.each do |parent|
-    -#           %option #{parent}
+  %br
+  .listing-form
+    .listing-product-detail__category
+      .listing-default__label 
+        %label カテゴリー
+      - if @gift.persisted?
+        .listing-select-wrapper
+          .listing-select-wrapper__box
+            %select{class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              - @category_parent_array.each do |parent|
+                - if "#{parent}" == Category.find(@gift.category_id).parent.parent.name
+                  %option{selected: "selected"} #{parent}
+                - else
+                  %option #{parent}
+        #children_wrapper.listing-select-wrapper__added
+          .listing-select-wrapper__box
+            %select#child_category.listing-select-wrapper__box--select
+              %option ---
+              - @category_children.each do |c|
+                - if "#{c.name}" == Category.find(@gift.category_id).parent.name
+                  %option{data: {category: "#{c.name}"}, selected: "selected" } #{c.name}
+                - else
+                  %option{data: {category: "#{c.name}"} } #{c.name}
+        #grandchildren_wrapper.listing-select-wrapper__added
+          #listing-select-wrapper__box.listing-select-wrapper__box
+            %select#grandchild_category.listing-select-wrapper__box--select{name: "gift[category_id]" }
+              %option ---
+              - @category_grandchildren.each do |g|
+                - if "#{g.name}" == Category.find(@gift.category_id).name
+                  %option{value: "#{g.id}", data: {category: "#{g.name}"}, selected: "selected" } #{g.name}
+                - else
+                  %option{value: "#{g.id}", data: {category: "#{g.name}"}} #{g.name}
+      - else
+        .listing-select-wrapper
+          .listing-select-wrapper__box
+            %select{class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              - @category_parent_array.each do |parent|
+                %option #{parent}
   %br
   .form-brand
     = f.label :brand_id, "ブランド"

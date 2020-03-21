@@ -30,6 +30,23 @@ class GiftsController < ApplicationController
     end
   end
   def edit
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).limit(13).each do |parent|
+      @category_parent_array << parent.name
+    end
+    @category_children = Category.find(@gift.category_id).parent.parent.children
+    def get_category_children
+      @category_children = Category.find_by(name: "#{params[:parent_name]}").children
+    end
+    @category_grandchildren = Category.find(@gift.category_id).parent.children
+    def get_category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
+    @brands = [{name: "---", id: 0}]
+    Brand.all.each do |b|
+      @brands << {name: "#{b.name}", id: "#{b.id}"}
+    end
+
   end
   def update
     if @gift.update(gift_params)
