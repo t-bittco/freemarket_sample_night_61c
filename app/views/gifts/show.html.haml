@@ -1,0 +1,64 @@
+= render 'index__header'
+.show-wrapper
+  .name-box
+    %label 商品名
+    %br
+    = @gift.name
+  %br
+  .image-box
+    #image-box
+      #image-labels
+        %label 商品画像
+      #previews
+        - @gift.images.each_with_index do |image, i|
+          = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
+  %br
+  .discription-box
+    %label 商品説明
+    %br
+    = @gift.discription
+  %br
+  .listing-box
+    .listing-product-detail__category
+      .listing-default__label 
+        %label カテゴリー
+      - if @gift.persisted?
+        .listing-select-wrapper
+          .listing-select-wrapper__box
+            = "#{Category.find(@gift.category_id).parent.parent.name}/#{Category.find(@gift.category_id).parent.name}/#{Category.find(@gift.category_id).name}"
+  %br
+  .brand-box
+    %label ブランド
+    %br
+    = Brand.find(@gift.brand_id).name
+  %br
+  .state-box
+    %label 商品の状態
+    %br
+    = @gift.state
+  %br
+  .shipping-charge-box
+    %label 配送料の負担
+    %br
+    = @gift.shipping_charge
+  %br
+  .how-to-ship-box
+    %label 配送方法
+    %br
+    = @gift.how_to_ship
+  %br
+  .sender-region-box
+    %label 発送元地域
+    %br
+    = @gift.sender_region
+  %br
+  .days-to-ship-box
+    %label 発送までの日数
+    %br
+    = @gift.days_to_ship
+  %br
+  .price-box
+    %label 販売価格
+    %br
+    = "#{@gift.price}円"
+= render 'index__footer'

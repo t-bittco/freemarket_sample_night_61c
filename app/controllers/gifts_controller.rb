@@ -29,6 +29,8 @@ class GiftsController < ApplicationController
       render :edit
     end
   end
+  def show
+  end
   def destroy
     @gift.destroy
     redirect_to root_path
