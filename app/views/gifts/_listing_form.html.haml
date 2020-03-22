@@ -36,6 +36,7 @@
         .listing-select-wrapper
           .listing-select-wrapper__box
             %select{class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              %option ---
               - @category_parent_array.each do |parent|
                 - if "#{parent}" == Category.find(@gift.category_id).parent.parent.name
                   %option{selected: "selected"} #{parent}
@@ -44,7 +45,7 @@
         #children_wrapper.listing-select-wrapper__added
           .listing-select-wrapper__box
             %select#child_category.listing-select-wrapper__box--select
-              %option ---
+              %option{data: {category: "---"}} ---
               - @category_children.each do |c|
                 - if "#{c.name}" == Category.find(@gift.category_id).parent.name
                   %option{data: {category: "#{c.id}"}, selected: "selected" } #{c.name}

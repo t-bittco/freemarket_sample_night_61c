@@ -25,6 +25,7 @@ class GiftsController < ApplicationController
     if @gift.update(gift_params)
       redirect_to root_path
     else
+      flash.now[:error] = '商品の出品に失敗しました'
       render :edit
     end
   end
@@ -32,11 +33,9 @@ class GiftsController < ApplicationController
     @gift.destroy
     redirect_to root_path
   end
+
   def get_category_parents
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).pluck(:name).each do |parent|
-      @category_parent_array << parent
-    end
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}").children
