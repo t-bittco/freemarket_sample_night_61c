@@ -1,23 +1,11 @@
 class GiftsController < ApplicationController
-  before_action :get_gift, except: [:index, :new, :create]
+  before_action :get_gift, only: [:edit,:update, :show]
+  before_action :get_category_parents, only: [:new, :edit]
+  before_action :get_brands, only: [:new, :edit]
   def index
     @gifts = Gift.includes(:images).order("created_at DESC")
   end
   def new
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).pluck(:name).each do |parent|
-      @category_parent_array << parent
-    end
-    def get_category_children
-      @category_children = Category.find_by(name: "#{params[:parent_name]}").children
-    end
-    def get_category_grandchildren
-      @category_grandchildren = Category.find("#{params[:child_id]}").children
-    end
-    @brands = [{name: "---", id: 0}]
-    Brand.all.each do |b|
-      @brands << {name: "#{b.name}", id: "#{b.id}"}
-    end
     @gift = Gift.new
     @gift.images.new
   end
@@ -30,23 +18,8 @@ class GiftsController < ApplicationController
     end
   end
   def edit
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).pluck(:name).each do |parent|
-      @category_parent_array << parent
-    end
     @category_children = Category.find(@gift.category_id).parent.parent.children
-    def get_category_children
-      @category_children = Category.find_by(name: "#{params[:parent_name]}").children
-    end
     @category_grandchildren = Category.find(@gift.category_id).parent.children
-    def get_category_grandchildren
-      @category_grandchildren = Category.find("#{params[:child_id]}").children
-    end
-    @brands = [{name: "---", id: 0}]
-    Brand.all.each do |b|
-      @brands << {name: "#{b.name}", id: "#{b.id}"}
-    end
-
   end
   def update
     if @gift.update(gift_params)
@@ -59,6 +32,25 @@ class GiftsController < ApplicationController
     @gift.destroy
     redirect_to root_path
   end
+  def get_category_parents
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).pluck(:name).each do |parent|
+      @category_parent_array << parent
+    end
+  end
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}").children
+  end
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+  def get_brands
+    @brands = [{name: "---", id: 0}]
+    Brand.all.each do |b|
+      @brands << {name: "#{b.name}", id: "#{b.id}"}
+    end
+  end
+
 
   private
   def gift_params
