@@ -1,5 +1,5 @@
 class GiftsController < ApplicationController
-  before_action :get_gift, only: [:edit,:update, :show]
+  before_action :get_gift, only: [:edit, :update, :show, :destroy]
   before_action :get_category_parents, only: [:new, :edit]
   before_action :get_brands, only: [:new, :edit]
   def index

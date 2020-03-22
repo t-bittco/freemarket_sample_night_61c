@@ -64,6 +64,7 @@
         .listing-select-wrapper
           .listing-select-wrapper__box
             %select{class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              %option ---
               - @category_parent_array.each do |parent|
                 %option #{parent}
   %br
