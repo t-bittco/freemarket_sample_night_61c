@@ -27,6 +27,7 @@
   text-align: center;
   background: #f5f5f5;
   &__logo{
+    color: grey;
     margin: 40px 0 0;
     display: inline-block;
     width: 185px;
@@ -49,6 +50,7 @@
       width: 185px;
       line-height: 49px;
       i{
+        color: grey;
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
         font-size: 60px;
