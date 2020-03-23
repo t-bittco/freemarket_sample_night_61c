@@ -1,0 +1,11 @@
+.items
+  - @gifts.each do |gift|
+    .items_item
+      = gift.name
+      = link_to image_tag(Image.find_by(gift_id: "#{gift.id}").name.url), "/gifts/#{gift.id}(.:format)", method: :get
+      %button= link_to '編集', edit_gift_path(gift)
+      %button= link_to '削除', gift_path(gift), method: :delete
+      = Category.find("#{gift.category_id}").parent.parent.name
+      = Category.find("#{gift.category_id}").parent.name
+      = Category.find("#{gift.category_id}").name
+      = Brand.find("#{gift.brand_id}").name
