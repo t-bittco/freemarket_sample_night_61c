@@ -1,0 +1,27 @@
+.items{
+  height: calc(100vh - 350px - 24px);
+  width: 100%;
+  background-color: peru;
+  display: flex;
+  flex-wrap: wrap;
+  &__item{
+    padding: 1%;
+    height: 48%;
+    min-width: 100px;
+    width: calc((100% - 2% * 5) / 5 );
+    font-size: 13px;
+    .item-image{
+      height: 70%;
+      width: 100%;
+      & img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .item-discriptions{
+      height: 30%;
+      width: 100%;
+    }
+  }
+}

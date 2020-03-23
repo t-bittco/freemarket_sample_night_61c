@@ -1,0 +1,113 @@
+= form_for(@gift) do |f|
+  .name-form
+    = f.label :name, "商品名"
+    %br
+    = f.text_field :name, placeholder: "Until 40",label: "商品名"
+  %br
+  .image-form
+    #image-box
+      #image-labels
+        %label 商品画像
+      #previews
+        - if @gift.persisted?
+          - @gift.images.each_with_index do |image, i|
+            = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
+      = f.fields_for :images do |image|
+        .js-file_group{data: {index: "#{image.index}" } }
+          = image.file_field :name, class: 'js-file'
+          %button.js-remove 削除
+        - if @gift.persisted?
+          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+      - if @gift.persisted?
+        .js-file_group{data: {index: "#{@gift.images.count}" } }
+          = file_field_tag :name, name: "gift[images_attributes][#{@gift.images.count}][name]", class: 'js-file'
+          %button.js-remove 削除
+  %br
+  .discription-form
+    = f.label :discription, "商品説明"
+    %br
+    = f.text_area :discription, placeholder: "Please Discript Your Gift!"
+  %br
+  .listing-form
+    .listing-product-detail__category
+      .listing-default__label 
+        %label カテゴリー
+      - if @gift.persisted?
+        .listing-select-wrapper
+          .listing-select-wrapper__box
+            %select{class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              %option ---
+              - @category_parent_array.each do |parent|
+                - if "#{parent}" == Category.find(@gift.category_id).parent.parent.name
+                  %option{selected: "selected"} #{parent}
+                - else
+                  %option #{parent}
+        #children_wrapper.listing-select-wrapper__added
+          .listing-select-wrapper__box
+            %select#child_category.listing-select-wrapper__box--select
+              %option{data: {category: "---"}} ---
+              - @category_children.each do |c|
+                - if "#{c.name}" == Category.find(@gift.category_id).parent.name
+                  %option{data: {category: "#{c.id}"}, selected: "selected" } #{c.name}
+                - else
+                  %option{data: {category: "#{c.id}"} } #{c.name}
+        #grandchildren_wrapper.listing-select-wrapper__added
+          #listing-select-wrapper__box.listing-select-wrapper__box
+            %select#grandchild_category.listing-select-wrapper__box--select{name: "gift[category_id]" }
+              %option ---
+              - @category_grandchildren.each do |g|
+                - if "#{g.name}" == Category.find(@gift.category_id).name
+                  %option{value: "#{g.id}", data: {category: "#{g.name}"}, selected: "selected" } #{g.name}
+                - else
+                  %option{value: "#{g.id}", data: {category: "#{g.name}"}} #{g.name}
+      - else
+        .listing-select-wrapper
+          .listing-select-wrapper__box
+            %select{class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              %option ---
+              - @category_parent_array.each do |parent|
+                %option #{parent}
+  %br
+  .form-brand
+    = f.label :brand_id, "ブランド"
+    %br
+    - if @gift.persisted?
+      = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id], {'data-sample'=>c[:id]}]}, @gift.brand_id), {}, {class: 'brand-box', id: 'brand-box'}
+    - else
+      = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id]]}, 0), {}, {class: 'brand-box', id: 'brand-box'}
+  %br
+  .form-state
+    = f.label :state, "商品の状態"
+    %br
+    = f.text_field :state, placeholder: "Choose State Of Your Gift"
+  %br
+  .form-shipping-charge
+    = f.label :shipping_charge, "配送料の負担"
+    %br
+    = f.text_field :shipping_charge, placeholder: "Who"
+  %br
+  .form-how-to-ship
+    = f.label :how_to_ship, "配送方法"
+    %br
+    = f.text_field :how_to_ship
+  %br
+  .form-sender-region
+    = f.label :sender_region, "発送元地域"
+    %br
+    = f.text_field :sender_region
+  %br
+  .form-days-to-ship
+    = f.label :days_to_ship, "発送までの日数"
+    %br
+    = f.text_field :days_to_ship
+  %br
+  .form-price
+    = f.label :price, "販売価格"
+    %br
+    = f.number_field :price, placeholder: "Type Price Of Your Gift"
+  %br
+  = f.hidden_field :listing_state, value: 0
+  -# 0: 出品中, 1: 交渉中, 2: 売却済, 3: 公開停止
+  = f.hidden_field :user_id, value: "#{current_user}"
+  = f.submit "出品する"
+
