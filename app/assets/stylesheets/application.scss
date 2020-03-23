@@ -4,6 +4,7 @@
 @import "reset";
 @import "../config/mixin";
 @import "gifts/index";
+@import "gifts/show";
 @import "font-awesome";
 @import "font-awesome-sprockets";
 @import "shared/header";
@@ -43,3 +44,5 @@ a {
 .display_none {
   display: none;
 }
+
+

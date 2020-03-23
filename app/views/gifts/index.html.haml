@@ -1,4 +1,59 @@
-= render 'index__header'
-= render 'index__main'
-= render 'index__footer'
-= render 'listing__button'
+= render 'header'
+.main
+  .advertise-box__upper
+    .head
+      スマホで簡単
+      %br
+      フリマアプリ！！
+    .text
+      アプリならスマホカメラからすぐに出品できる
+      %br
+      購入時も安心な置く時のスマホアプリです
+  .popular-categories
+    .popular-categories__title
+      人気カテゴリー
+    %ul.popular-categories__category-box
+      %li
+        レディース
+      %li
+        メンズ
+      %li
+        家電・スマホ・カメラ
+      %li
+        おもちゃ・ホビー・グッズ
+  .new-items-box__category
+    .titles
+      .titles__title
+        新着アイテム
+      .titles__more
+        = link_to "もっと見る", root_path
+    = render 'listed-items'
+  .popular-brands
+    .popular-brands__title
+      人気ブランド
+    %ul.popular-brands__brand-box
+      %li
+        レディース
+      %li
+        メンズ
+      %li
+        家電・スマホ・カメラ
+      %li
+        おもちゃ・ホビー・グッズ
+  .new-items-box__brand
+    .titles
+      .titles__title
+        新着アイテム
+      .titles__more
+        = link_to "もっと見る", root_path
+    .items
+      .items__item
+  .advertise-box__under
+    .head
+      スマホで簡単フリマアプリ
+    .text
+      いますぐ無料ダウンロード！
+    .link
+      %i.fas.fa-shopping-cart.fa-2x.fa-spin{style: "color: white;"}
+= render 'footer'
+= render 'listing-button'
