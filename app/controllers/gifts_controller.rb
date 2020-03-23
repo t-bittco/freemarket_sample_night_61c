@@ -1,7 +1,9 @@
 class GiftsController < ApplicationController
+
   before_action :get_gift, only: [:edit, :update, :show, :destroy]
   before_action :get_category_parents, only: [:new, :edit]
   before_action :get_brands, only: [:new, :edit]
+
   def index
     @gifts = Gift.includes(:images).order("created_at DESC")
   end
@@ -52,7 +54,6 @@ class GiftsController < ApplicationController
     end
   end
 
-
   private
   def gift_params
     params.require(:gift).permit(:name, :discription, :shipping_charge, :how_to_ship, :sender_region, :days_to_ship, :state, :price, :category_id, :listing_state, :user_id, :brand_id, images_attributes: [:name, :_destroy, :id])
@@ -60,4 +61,5 @@ class GiftsController < ApplicationController
   def get_gift
     @gift = Gift.find(params[:id])
   end
+  
 end
