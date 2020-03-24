@@ -1,5 +1,5 @@
 .signin__container
-  = render 'signup/login_simple_header'
+  = render 'signup/login_header'
   .signin-main
     .signin-main__section
       .signin-main__section__top
@@ -17,7 +17,7 @@
               .signin-main__conect__lists__facebook__btn
                 Facebookでログイン
                 %i.fbicon
-                  = fa_icon "facebook-square"
+                  = icon('fab', 'facebook-square')
           %li.signin-main__conect__lists__google2
             = link_to user_google_oauth2_omniauth_authorize_path do
               .signin-main__conect__lists__google2__btn

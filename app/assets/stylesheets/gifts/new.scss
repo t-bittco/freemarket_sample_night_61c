@@ -1,0 +1,7 @@
+@import "module/header";
+.form{
+  width: 100vw;
+  padding-top: 100px;
+  @import "module/listing-form";
+}
+@import "module/footer";
