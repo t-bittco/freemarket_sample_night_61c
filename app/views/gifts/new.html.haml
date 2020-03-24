@@ -1,1 +1,6 @@
-= render 'listing-form'
+= render 'header'
+.form
+  - breadcrumb :new
+  = render "layouts/breadcrumbs"
+  = render 'listing-form'
+= render 'footer'
