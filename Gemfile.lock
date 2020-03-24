@@ -397,11 +397,8 @@ DEPENDENCIES
   factory_bot_rails
   fog-aws
   font-awesome-rails
-
   font-awesome-sass
-
   gretel
-
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
