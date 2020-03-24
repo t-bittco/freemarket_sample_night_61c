@@ -102,5 +102,4 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'font-awesome-sass'
 
-
-
+gem 'gretel'

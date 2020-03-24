@@ -25,7 +25,7 @@ class GiftsController < ApplicationController
   end
   def update
     if @gift.update(gift_params)
-      redirect_to root_path
+      render :update
     else
       flash.now[:error] = '商品の出品に失敗しました'
       render :edit
