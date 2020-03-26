@@ -1,66 +1,109 @@
 = render 'header'
-.show-wrapper
+.show
   - breadcrumb :show
   = render "layouts/breadcrumbs"
-  .name-box
-    %label 商品名
-    %br
-    = @gift.name
-  %br
-  .image-box
-    #image-box
-      #image-labels
-        %label 商品画像
-      #previews
-        - @gift.images.each_with_index do |image, i|
-          = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
-  %br
-  .discription-box
-    %label 商品説明
-    %br
-    = @gift.discription
-  %br
-  .listing-box
-    .listing-product-detail__category
-      .listing-default__label 
-        %label カテゴリー
-      - if @gift.persisted?
-        .listing-select-wrapper
-          .listing-select-wrapper__box
-            = "#{Category.find(@gift.category_id).parent.parent.name}/#{Category.find(@gift.category_id).parent.name}/#{Category.find(@gift.category_id).name}"
-  %br
-  .brand-box
-    %label ブランド
-    %br
-    = Brand.find(@gift.brand_id).name
-  %br
-  .state-box
-    %label 商品の状態
-    %br
-    = @gift.state
-  %br
-  .shipping-charge-box
-    %label 配送料の負担
-    %br
-    = @gift.shipping_charge
-  %br
-  .how-to-ship-box
-    %label 配送方法
-    %br
-    = @gift.how_to_ship
-  %br
-  .sender-region-box
-    %label 発送元地域
-    %br
-    = @gift.sender_region
-  %br
-  .days-to-ship-box
-    %label 発送までの日数
-    %br
-    = @gift.days_to_ship
-  %br
-  .price-box
-    %label 販売価格
-    %br
-    = "#{@gift.price}円"
-= render 'footer'
+  .show-wrapper
+    .gift-about
+      .individual-form
+        .labels-wrapper
+          .label
+            %label 商品名
+          .required 必須
+        %br
+        .before-input
+          = @gift.name
+      .individual-form#image-box
+        .labels-wrapper
+          .label
+            %label 商品画像
+          .required 必須
+        #previews
+          - @gift.images.each_with_index do |image, i|
+            = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
+      .individual-form
+        .labels-wrapper
+          .label
+            %label "商品説明"
+          .required 必須
+        %br
+        .before-input
+          = @gift.discription
+    .gift-detail
+      .individual-form#listing-product-detail__category
+        .labels-wrapper
+          .label 
+            %label カテゴリー
+          .required 必須
+        .before-input
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              .listing-select-wrapper__box--select#parent_category
+                = Category.find(@gift.category_id).parent.parent.name
+          #children_wrapper.listing-select-wrapper__added
+            .listing-select-wrapper__box
+              #child_category.listing-select-wrapper__box--select
+                = Category.find(@gift.category_id).parent.name
+          #grandchildren_wrapper.listing-select-wrapper__added
+            #listing-select-wrapper__box.listing-select-wrapper__box
+              #grandchild_category.listing-select-wrapper__box--select
+                = Category.find(@gift.category_id).name
+      .individual-form
+        .labels-wrapper
+          .label
+            %label ブランド
+          .arbitrary 任意
+        %br
+        .before-input
+          .brand-box#brand-box
+            = Brand.find(@gift.brand_id).name
+      .individual-form
+        .labels-wrapper
+          .label
+            %label 商品の状態
+          .required 必須
+        %br
+        .before-input
+          = @gift.state
+    .gift-ships
+      .individual-form
+        .labels-wrapper
+          .label
+            %label 配送料の負担
+          .required 必須
+        %br
+        .before-input
+          = @gift.shipping_charge
+      .individual-form
+        .labels-wrapper
+          .label
+            %label 配送方法
+          .required 必須
+        %br
+        .before-input
+          = @gift.how_to_ship
+      .individual-form
+        .labels-wrapper
+          .label
+            %label 発送元地域
+          .required 必須
+        %br
+        .before-input
+          = @gift.sender_region
+      .individual-form
+        .labels-wrapper
+          .label
+            %label 発送までの日数
+          .required 必須
+        %br
+        .before-input
+          = @gift.days_to_ship
+    .gift-price
+      .individual-form
+        .labels-wrapper
+          .label
+            %label 販売価格
+          .required 必須
+        %br
+        .before-input
+          = @gift.price
+= render 'footer' 
