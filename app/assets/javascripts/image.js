@@ -35,7 +35,7 @@ $(document).on('ready page:load', function(){
       img.setAttribute('src', blobUrl);
     } else {
       $('#previews').append(buildImg(targetIndex, blobUrl));
-      if ($('.select').length = $('.js-file').length && $('.js-file').length < 10) {
+      if ($('.select').length == $('.js-file').length && $('.js-file').length < 10) {
         $('#image-box').append(buildFileField(fileIndex[0]));
       }
       fileIndex.shift();
@@ -49,7 +49,7 @@ $(document).on('ready page:load', function(){
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
-    if ($('.select').length = $('.js-file').length && $('.js-file').length < 10) {
+    if ($('.select').length == $('.js-file').length && $('.js-file').length < 10) {
       $('#image-box').append(buildFileField(fileIndex[0]));
     }
     fileIndex.shift();
