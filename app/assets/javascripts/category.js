@@ -19,7 +19,7 @@ $(function(){
                           <select>
                         </div>
                       </div>`;
-    $('.listing-product-detail__category').append(childSelectHtml);
+    $('#listing-product-detail__category').append(childSelectHtml);
   }
   // 孫カテゴリーの表示作成
   function appendGrandchidrenBox(insertHTML){
@@ -32,7 +32,7 @@ $(function(){
                                 </select>
                               </div>
                             </div>`;
-    $('.listing-product-detail__category').append(grandchildSelectHtml);
+    $('#listing-product-detail__category').append(grandchildSelectHtml);
   }
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
@@ -66,7 +66,7 @@ $(function(){
     }
   });
   // 子カテゴリー選択後のイベント
-  $('.listing-product-detail__category').on('change', '#child_category', function(){
+  $('#listing-product-detail__category').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category');
     if (childId != "---"){
       $.ajax({

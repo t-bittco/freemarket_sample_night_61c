@@ -1,38 +1,59 @@
 .form-wrapper
   = form_for(@gift) do |f|
-    .name-form
-      = f.label :name, "商品名"
-      %br
-      = f.text_field :name, placeholder: "Until 40",label: "商品名"
-    %br
-    .image-form
-      #image-box
-        #image-labels
-          %label 商品画像
+    .gift-about
+      .individual-form
+        .labels-wrapper
+          .label
+            = f.label :name, "商品名"
+          .required 必須
+        %br
+        = f.text_field :name, placeholder: "Until 40",label: "商品名"
+      .individual-form#image-box
+        .labels-wrapper
+          .label
+            %label 商品画像
+          .required 必須
+          .cautions ※画像は10枚までアップロードできます
         #previews
           - if @gift.persisted?
             - @gift.images.each_with_index do |image, i|
               = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
         = f.fields_for :images do |image|
           .js-file_group{data: {index: "#{image.index}" } }
-            = image.file_field :name, class: 'js-file'
+            .js-file
+              = image.file_field :name, style: "display:none", class: "js-upload"
+              - if @gift.persisted?
+                %label.original_btn ファイルを変更
+                %span.icon.select 選択中
+                .filename 
+                  ファイル名: 
+                  = @gift.images[image.index].name.identifier
+              - else
+                %label.original_btn ファイルを選択
+                %span.icon 未選択
             %button.js-remove 削除
           - if @gift.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @gift.persisted?
           .js-file_group{data: {index: "#{@gift.images.count}" } }
-            = file_field_tag :name, name: "gift[images_attributes][#{@gift.images.count}][name]", class: 'js-file'
+            .js-file
+              = file_field_tag :name, name: "gift[images_attributes][#{@gift.images.count}][name]", style:"display:none", class: "js-upload", id: "gift_images_attributes_#{@gift.images.count}_name"
+              %label.original_btn ファイルを選択
+              %span.icon 未選択
             %button.js-remove 削除
-    %br
-    .discription-form
-      = f.label :discription, "商品説明"
-      %br
-      = f.text_area :discription, placeholder: "Please Discript Your Gift!"
-    %br
-    .listing-form
-      .listing-product-detail__category
-        .listing-default__label 
-          %label カテゴリー
+      .individual-form
+        .labels-wrapper
+          .label
+            = f.label :discription, "商品説明"
+          .required 必須
+        %br
+        = f.text_area :discription, placeholder: "Please Discript Your Gift!"
+    .gift-detail
+      .individual-form#listing-product-detail__category
+        .labels-wrapper
+          .label 
+            %label カテゴリー
+          .required 必須
         - if @gift.persisted?
           .listing-select-wrapper
             .listing-select-wrapper__box
@@ -68,47 +89,66 @@
                 %option ---
                 - @category_parent_array.each do |parent|
                   %option #{parent}
-    %br
-    .form-brand
-      = f.label :brand_id, "ブランド"
-      %br
-      - if @gift.persisted?
-        = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id], {'data-sample'=>c[:id]}]}, @gift.brand_id), {}, {class: 'brand-box', id: 'brand-box'}
-      - else
-        = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id]]}, 0), {}, {class: 'brand-box', id: 'brand-box'}
-    %br
-    .form-state
-      = f.label :state, "商品の状態"
-      %br
-      = f.text_field :state, placeholder: "Choose State Of Your Gift"
-    %br
-    .form-shipping-charge
-      = f.label :shipping_charge, "配送料の負担"
-      %br
-      = f.text_field :shipping_charge, placeholder: "Who"
-    %br
-    .form-how-to-ship
-      = f.label :how_to_ship, "配送方法"
-      %br
-      = f.text_field :how_to_ship
-    %br
-    .form-sender-region
-      = f.label :sender_region, "発送元地域"
-      %br
-      = f.text_field :sender_region
-    %br
-    .form-days-to-ship
-      = f.label :days_to_ship, "発送までの日数"
-      %br
-      = f.text_field :days_to_ship
-    %br
-    .form-price
-      = f.label :price, "販売価格"
-      %br
-      = f.number_field :price, placeholder: "Type Price Of Your Gift"
-    %br
+      .individual-form
+        .labels-wrapper
+          .label
+            = f.label :brand_id, "ブランド"
+          .arbitrary 任意
+        %br
+        - if @gift.persisted?
+          = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id], {'data-sample'=>c[:id]}]}, @gift.brand_id), {}, {class: 'brand-box', id: 'brand-box'}
+        - else
+          = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id]]}, 0), {}, {class: 'brand-box', id: 'brand-box'}
+      .individual-form
+        .labels-wrapper
+          .label
+            = f.label :state, "商品の状態"
+          .required 必須
+        %br
+        = f.text_field :state, placeholder: "Choose State Of Your Gift"
+    .gift-ships
+      .individual-form
+        .labels-wrapper
+          .label
+            = f.label :shipping_charge, "配送料の負担"
+          .required 必須
+        %br
+        = f.text_field :shipping_charge, placeholder: "Who"
+      .individual-form
+        .labels-wrapper
+          .label
+            = f.label :how_to_ship, "配送方法"
+          .required 必須
+        %br
+        = f.text_field :how_to_ship
+      .individual-form
+        .labels-wrapper
+          .label
+            = f.label :sender_region, "発送元地域"
+          .required 必須
+        %br
+        = f.text_field :sender_region
+      .individual-form
+        .labels-wrapper
+          .label
+            = f.label :days_to_ship, "発送までの日数"
+          .required 必須
+        %br
+        = f.text_field :days_to_ship
+    .gift-price
+      .individual-form
+        .labels-wrapper
+          .label
+            = f.label :price, "販売価格"
+          .required 必須
+        %br
+        = f.number_field :price, placeholder: "Type Price Of Your Gift"
     = f.hidden_field :listing_state, value: 0
     -# 0: 出品中, 1: 交渉中, 2: 売却済, 3: 公開停止
     = f.hidden_field :user_id, value: "#{current_user}"
-    = f.submit "出品する"
+    .submit
+      - if @gift.persisted?
+        = f.submit "編集完了", id: "submit"
+      - else
+        = f.submit "出品する", id: "submit"
 
