@@ -1,6 +1,15 @@
 @import "module/header";
-.show-wrapper{
-  width: 100vw;
+.show{
   padding-top: 100px;
+  background-color: gray;
+  .show-wrapper{
+    width: calc(100vw - 20%);
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    .gift-about, .gift-detail, .gift-ships, .gift-price{
+      @include forms();
+    }
+  }
 }
 @import "module/footer";

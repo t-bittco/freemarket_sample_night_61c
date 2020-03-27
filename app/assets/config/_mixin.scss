@@ -12,3 +12,91 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin labels($color1: white, $color2: black){
+  background-color: $color1;
+  margin: 5px;
+  border-radius: 5px;
+  border: solid 2px $color1;
+  padding: 10px;
+  color: $color2;
+}
+
+@mixin forms(){
+  .individual-form{
+    width: 80%;
+    margin: 0px auto;
+    padding: 5%;
+    .labels-wrapper{
+      display: flex;
+      .label{
+        @include labels(bisque, gray);
+      }
+      .required{
+        @include labels(greenyellow, white);
+      }
+      .arbitrary{
+        @include labels(rgb(48, 191, 204), white);
+      }
+      .cautions{
+        @include labels();
+      }
+    }
+    .js-file_group{
+      height: 40px;
+      width: 95%;
+      border-radius: 1px;
+      border: solid 0.5px rgba(168, 156, 156, 0.89);
+      @include flex-box();
+      .js-file{
+        height: 100%;
+        width: 88%;
+        @include flex-box();
+        .original_btn {
+          margin: 1%;
+          border: 1px solid #ddd;
+          padding: 5px;
+          cursor: pointer;
+          border-radius: 5px;
+          color: #666;
+          background: linear-gradient(to bottom,#fff 0,#f4f4f4 100%);
+        }
+        /* 未選択時のアイコン */
+        .icon {
+          font-size: 12px;
+          margin: 0 10px 0 15px;
+          padding: 3px 20px;
+          border-radius: 15px;
+          background: #666;
+          color: #fff;
+          display: inline-block;
+        }
+        /* 選択時のアイコン */
+        .icon.select {
+          background: #ff5050;
+          color: #fff;
+        }
+        /* ファイル名 */
+        .filename {
+          display: inline-block;
+          font-size: 12px;
+        }
+      }
+      .js-remove{
+        width: 10%;
+        height: 80%;
+      }
+    }
+    input, textarea, select{
+      height: 40px;
+      width: 95%;
+    }
+    .before-input{
+      width: 95%;
+      font-size: 20px;
+      padding: 10px;
+      background-color: rgb(224, 211, 211);
+      @include textbox-centerise();
+    }
+  }
+}

@@ -22,6 +22,12 @@
     .item-discriptions{
       height: 30%;
       width: 100%;
+      overflow: hidden;
+      .item-discriptions--categories{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
   }
 }

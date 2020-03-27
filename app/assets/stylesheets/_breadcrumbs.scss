@@ -1,0 +1,13 @@
+.breadcrumbs{
+  height: 30px;
+  width: 100vw;
+  font-size: 15px;
+  background-color: rosybrown;
+  @include flex-box();
+  .breadcrumbs--list{
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
