@@ -3,6 +3,8 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSampleNight61c
+    %script{type: "text/javascript", src:"https://js.pay.jp/"}
+    %script{type: "text/javascript"} Payjp.setPublicKey('pk_test_e0d1b9ac5bd15a476d839811');
     = csrf_meta_tags
     = csp_meta_tag
     -# = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'

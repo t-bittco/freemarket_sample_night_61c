@@ -103,3 +103,4 @@ gem 'dotenv-rails'
 gem 'font-awesome-sass'
 
 gem 'gretel'
+gem 'payjp'
