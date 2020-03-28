@@ -1,8 +1,8 @@
 
-= render partial: "shared/header"
+= render partial: "gifts/header"
 .main
   .mypage-main-content
-    = render 'mypages/modules/mypage-sidebar'
+    = render 'mypage/modules/mypage-sidebar'
     .card-input-contents
       %h2
         クレジットカード情報入力
@@ -57,5 +57,5 @@
               %span
                 カード背面の番号とは？
           = f.submit "追加する", class:"add-btn",id: "token_submit", type: "submit"
-= render "shared/sell-btn"
-= render "shared/footer"
+= render "gifts/listing-button"
+= render "gifts/footer"

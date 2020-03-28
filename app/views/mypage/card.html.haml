@@ -1,10 +1,8 @@
 
-= render partial: "shared/header"
-- breadcrumb :card_create
-= render partial: "shared/breadcrumb"
+= render "gifts/header"
 .main
   .mypage-main-content
-    = render 'mypages/modules/mypage-sidebar'
+    = render 'mypage/modules/mypage-sidebar'
     .card-contents
       .card-content
         .card-content-container
@@ -36,5 +34,5 @@
                         %span クレジットカードを登録する
           .settings-not-regist
             =link_to "支払い方法について ＞", "https://www.mercari.com/jp/help_center/category/6/"
-= render "shared/sell-btn"
-= render "shared/footer"
+= render "gifts/listing-button"
+= render "gifts/footer"

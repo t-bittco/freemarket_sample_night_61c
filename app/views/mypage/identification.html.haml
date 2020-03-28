@@ -1,11 +1,11 @@
 
 .container
-  = render partial: "shared/header"
+  = render partial: "gifts/header"
   - breadcrumb :identification
-  = render partial: "shared/breadcrumb"
+  = render partial: "layouts/breadcrumbs"
   .main-background
     .left-content
-      = render "mypages/modules/mypage-sidebar"
+      = render "mypage/modules/mypage-sidebar"
     .right-identity-information
       %section.right-container
         %h2.right-container__head 本人情報の登録
@@ -31,7 +31,7 @@
           .form-group
             %label{for: "birthday"} 生年月日
             %br
-            =current_user.birthday
+            =current_user.birth_day
           .form-group
             %label{for: "zip_code"} 郵便番号
             %span.form-arbitrary 任意
@@ -59,5 +59,5 @@
             = link_to 'https://www.mercari.com/jp/help_center/article/423/', target: "_blank" do
               本人確認書類の登録について
               %i.fa.fa-chevron-right
-= render "shared/sell-btn"
-= render "shared/footer"
+= render "gifts/listing-button"
+= render "gifts/footer"

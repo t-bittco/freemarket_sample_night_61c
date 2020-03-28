@@ -1,0 +1,35 @@
+@import "reset";
+@import "font-awesome";
+@import "font-awesome-sprockets";
+@import "mypage/variable/variable";
+
+.left-content{
+  flex-basis: 280px;
+  margin-right:40px;
+  &__bar{
+    font-size: 14px;
+    margin-bottom: 40px;
+    
+    }
+    ul{
+      padding-inline-start:0;
+      li{
+        background-color:white;
+        padding: 16px;
+        display: flex;
+        align-items:center;
+       
+        @include border_line;
+        position: relative;
+        a{
+          color: $font-black;
+         }
+        .fa-chevron-right{
+          display: block;
+          margin: 0 0 0 auto;
+          color: #ccc;
+          a{color: $font-black;}
+        }
+      }
+    }
+  }

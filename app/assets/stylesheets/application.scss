@@ -21,7 +21,12 @@
 @import "mypage/variable/flex";
 @import "mypage/variable/mixin";
 @import "mypage/variable/variable";
-
+@import "mypage/mypage-sidebar";
+@import "mypage/mypage-index";
+@import "mypage/profile";
+@import "mypage/identification";
+@import "mypage/card/index";
+@import "mypage/card/new";
 
 // 全ページ共通のフォント
 * {

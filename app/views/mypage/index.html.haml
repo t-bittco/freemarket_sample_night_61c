@@ -1,14 +1,14 @@
 
 = render partial: "gifts/header"
--# - breadcrumb :mypage
--# = render partial: "shared/breadcrumb"
+- breadcrumb :mypage
+= render partial: "layouts/breadcrumbs"
 
 .mypage-main-content
   = render 'mypage/modules/mypage-sidebar'
   .a-right-content
     .a-right-content__block#back-img.middle-center
-      = image_tag 'mypage/user-icon.png', size: '60x60', alt: 'user-icon', class:"user-icon"
-      -# .a-right-content__block__user-name.bold #{current_user.nickname}
+      = image_tag 'https://jp.images-monotaro.com/Monotaro3/pi/full/mono23305285-180615-02.jpg', size: '60x60', alt: 'user-icon', class:"user-icon"
+      .a-right-content__block__user-name.bold #{current_user.nickname}
       .a-right-content__block__user-about
         %p.a-right-content__block__review 評価
         -# %span.bold #{current_user.rates.count}
@@ -26,7 +26,7 @@
         %li
           = link_to root_path do
             .a-right-content__block__object__link-box
-              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              =image_tag "https://jp.images-monotaro.com/Monotaro3/pi/full/mono23305285-180615-02.jpg", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
               .a-right-content__block__object__link-box__body
                 .a-right-content__block__object__link-box__body--text 《秋服もう買った？》今なら出品すると5%お得チケットもらえる！去年の服を出品して新しい服を買おう♪
                 .a-right-content__block__object__link-box__body--time
@@ -36,7 +36,7 @@
         %li
           = link_to root_path do
             .a-right-content__block__object__link-box
-              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              =image_tag "https://jp.images-monotaro.com/Monotaro3/pi/full/mono23305285-180615-02.jpg", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
               .a-right-content__block__object__link-box__body
                 .a-right-content__block__object__link-box__body--text 【スマホを売ろう！】メルカリなら下取りよりも高く売れる♪いますぐ相場チェック！
                 .a-right-content__block__object__link-box__body--time
@@ -46,7 +46,7 @@
         %li
           = link_to root_path do
             .a-right-content__block__object__link-box
-              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              =image_tag "https://jp.images-monotaro.com/Monotaro3/pi/full/mono23305285-180615-02.jpg", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
               .a-right-content__block__object__link-box__body
                 .a-right-content__block__object__link-box__body--text 《8%ポイント還元チケットプレゼント》出品も秋フェス開催中の今がチャンス！
                 .a-right-content__block__object__link-box__body--time
@@ -56,7 +56,7 @@
         %li
           = link_to root_path do
             .a-right-content__block__object__link-box
-              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              =image_tag "https://jp.images-monotaro.com/Monotaro3/pi/full/mono23305285-180615-02.jpg", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
               .a-right-content__block__object__link-box__body
                 .a-right-content__block__object__link-box__body--text 《CM放送中》参加したら10円分ポイント必ずもらえる！秋フェス開催中♪
                 .a-right-content__block__object__link-box__body--time
@@ -66,7 +66,7 @@
         %li
           = link_to root_path do
             .a-right-content__block__object__link-box
-              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              =image_tag "https://jp.images-monotaro.com/Monotaro3/pi/full/mono23305285-180615-02.jpg", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
               .a-right-content__block__object__link-box__body
                 .a-right-content__block__object__link-box__body--text 《参加ボタンを押すだけ！》10円分のポイントが"必ず"もらえる！メルカリ秋フェスが開催中♪
                 .a-right-content__block__object__link-box__body--time
@@ -155,5 +155,5 @@
                 .a-right-content__block__object__link-box__body--text 【新品・送料込み】THREE シマリングリップジャム08
                 .a-right-content__block__object__link-box__body__detail.middle ¥1,500
               %i.fa.fa-angle-right.fa-2x
--# = render "shared/sell-btn"
+= render "gifts/listing-button"
 = render "gifts/footer"
