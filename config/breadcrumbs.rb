@@ -49,3 +49,23 @@ crumb :show do
   link "商品詳細", gift_path, method: :GET
   parent :root
 end
+
+crumb :mypage do
+  link "マイページ", mypage_index_path
+  parent :root
+end
+
+crumb :logout do
+  link "ログアウト", logout_index_path
+  parent :mypage
+end
+
+crumb :profile do
+  link "プロフィール", mypage_profile_path
+  parent :mypage
+end
+
+crumb :identification do
+  link "本人情報の登録", mypage_identification_path
+  parent :mypage
+end

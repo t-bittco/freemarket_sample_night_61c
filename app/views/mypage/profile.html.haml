@@ -1,0 +1,21 @@
+.profile_container
+  = render "gifts/header"
+  - breadcrumb :profile
+  = render "layouts/breadcrumbs"
+  .main-background
+    .left-content
+      = render 'mypage/modules/mypage-sidebar'
+    .right-profile
+      %section.right-container
+        %h2.right-container__head プロフィール
+        %form{action: "https://www.mercari.com/jp/mypage/profile/", method: "POST"}
+          .setting-profile-icon
+            %figure
+              = image_tag 'https://jp.images-monotaro.com/Monotaro3/pi/full/mono23305285-180615-02.jpg', size: '60x60', alt: 'user-icon', class:"user-icon"
+            %input{type: "text", class: "input-default", placeholder: "例)フリマ太郎"}
+          .setting-profile-content
+            %textarea{class:"textarea-default", name: "introduction", placeholder: "例)こんにちは！ ご覧いただきありがとうございます！"}
+            %input{type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/", name: "after_save_callback"}
+            %input{type: "submit", value: "変更する", class: "btn-default btn-red"}
+= render "gifts/listing-button"
+= render "gifts/footer"
