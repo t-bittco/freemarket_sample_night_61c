@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+  get 'purchase/done'
   get '/mypage/identification', to: 'mypage#identification'
   get '/mypage/profile', to: 'mypage#profile'
   # get '/mypage/card', to: 'mypage#card'
@@ -51,6 +53,13 @@ Rails.application.routes.draw do
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
+    end
+  end
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index', to: 'purchase#index'
+      post 'pay', to: 'purchase#pay'
+      get 'done/：gift_id', to: 'purchase#done'
     end
   end
 end
