@@ -1,0 +1,20 @@
+%h1 Purchase#index
+%p Find me in app/views/purchase/index.html.haml
+%h2 購入を確定しますか？
+%p= "#{@gift.name}"
+%p= "¥#{@gift.price}(送料込み)"
+%br
+%h3 支払い方法
+- if @default_card_information.blank?
+  %br /
+- else
+  -#以下カード情報を表示
+  = "**** **** **** " + @default_card_information.last4
+  - exp_month = @default_card_information.exp_month.to_s
+  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+  = exp_month + " / " + exp_year
+%br
+= form_with(url: pay_purchase_index_path, local: true) do |f|
+  = f.hidden_field :gift_id, value: "#{@gift.id}"
+  = f.hidden_field :buyer_id, value: "#{current_user.id}"
+  = f.submit "購入する"

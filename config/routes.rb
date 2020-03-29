@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   get '/mypage/identification', to: 'mypage#identification'
   get '/mypage/profile', to: 'mypage#profile'
-  get '/mypage/card', to: 'mypage#card'
-  get '/mypage/card/new', to: 'mypage#card_new'
-  delete '/card/destroy', to: 'card#destroy'
   get 'logout/index'
   get '/signup/done', to: 'signup#done'
   get '/signup/index', to: 'signup#index'
@@ -42,8 +39,21 @@ Rails.application.routes.draw do
     get    'users/signup/registration',   to: 'users/registrations#step1'
     get    'users/signup/sms_confirmation',      to: 'users/registrations#step2'
   end
-  resources :addresses,only:[:create,:update]
+  resources :addresses, only:[:create,:update]
   resources :logout, only: [:index]
-  resources :mypage,only: [:index]
-  resources :card,only:[:index]
+  
+  resources :mypage, only: [:index]
+  resources :cards, only: [:index, :new] do
+    collection do
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index', to: 'purchase#index'
+      post 'pay', to: 'purchase#pay'
+      get 'done/：gift_id', to: 'purchase#done'
+    end
+  end
 end
