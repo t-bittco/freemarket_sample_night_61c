@@ -2,7 +2,6 @@
   padding-top: 100px;
   .mypage-main-content{
     .card-input-contents{
-      padding-top: 100px;
       height: 630px;
       width: 700px;
       background-color: #fff;
@@ -52,7 +51,7 @@
               select{
                 width: calc(100% - 38px);
                 position: relative;
-                z-index: 2;
+                z-index: none;
                 height: 48px;
                 padding: 0 16px;
                 border-radius: 4px;
@@ -66,13 +65,12 @@
                 top:5px;
                 right: 50px;
                 position: absolute;
-                z-index: 10;
+                z-index: none;
                 color: #888;
                 font-size: 35px;
               }
             }
           }
-          
           .signup-seqcode{
             text-align: right;
             font-size: 14px;
