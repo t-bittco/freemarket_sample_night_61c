@@ -1,8 +1,10 @@
 class CardsController < ApplicationController
 
   require "payjp"
+
+  before_action :set_cards, only: [:index, :delete]
+
   def index
-    @cards = Card.where(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     default_card_information = []
     @exp_mys = []
@@ -12,7 +14,7 @@ class CardsController < ApplicationController
       default_card_information = customer.cards.retrieve(card.card_id)
       exp_month = default_card_information.exp_month.to_s
       exp_year = default_card_information.exp_year.to_s.slice(2,3)
-      @exp_mys << "#{exp_month} +  '/'  + #{exp_year}"
+      @exp_mys << "#{exp_month}/#{exp_year}"
       @exp_last4 << "#{default_card_information.last4}"
     end
   end
@@ -41,11 +43,10 @@ class CardsController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    card = Card.where(user_id: current_user.id)
-    if card.blank?
+    if @cards.blank?
       redirect_to action: "index"
     else
-      card = card.find(params[:card_id])
+      card = @cards.find(params[:card_id])
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
@@ -54,14 +55,8 @@ class CardsController < ApplicationController
     end
   end
 
-  def show #Cardのデータpayjpに送り情報を取り出します
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "new" 
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
+  private
+  def set_cards
+    @cards = Card.where(user_id: current_user.id)
   end
 end

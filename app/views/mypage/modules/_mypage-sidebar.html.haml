@@ -64,7 +64,8 @@
         %a{href: "#"} 住所変更
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/cards"} 支払い方法
+        = link_to cards_path do
+          %span 支払い方法
         %i.fa.fa-chevron-right
       %li
         %a メール/パスワード

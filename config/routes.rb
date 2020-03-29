@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  get 'purchase/index'
-  get 'purchase/done'
   get '/mypage/identification', to: 'mypage#identification'
   get '/mypage/profile', to: 'mypage#profile'
-  # get '/mypage/card', to: 'mypage#card'
-  # get '/mypage/card/new', to: 'mypage#card_new'
-  # delete '/card/destroy', to: 'card#destroy'
   get 'logout/index'
   get '/signup/done', to: 'signup#done'
   get '/signup/index', to: 'signup#index'
@@ -48,10 +43,8 @@ Rails.application.routes.draw do
   resources :logout, only: [:index]
   
   resources :mypage, only: [:index]
-  resources :cards, only: [:index, :new, :show] do
+  resources :cards, only: [:index, :new] do
     collection do
-      # post 'index', to: 'cards#index'
-      # post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
     end
