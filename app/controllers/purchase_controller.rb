@@ -25,14 +25,14 @@ class PurchaseController < ApplicationController
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
     )
-    redirect_to action: "done", "gift_id": params[:gift_id]  #完了画面に移動
+    redirect_to action: "done", "gift_id": params[:gift_id], "buyer_id": params[:buyer_id]  #完了画面に移動
   end
   def done
-    Gift.find(@gift.id).update(listing_state: 2)
+    Gift.find(@gift.id).update(listing_state: 2, buyer_id: params[:buyer_id])
   end
 
   private
   def get_gift
     @gift = Gift.find(params[:gift_id])
-  end
+  end  
 end

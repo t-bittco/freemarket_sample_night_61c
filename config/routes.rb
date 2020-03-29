@@ -50,8 +50,8 @@ Rails.application.routes.draw do
   resources :mypage, only: [:index]
   resources :cards, only: [:index, :new, :show] do
     collection do
-      post 'index', to: 'cards#index'
-      post 'show', to: 'cards#show'
+      # post 'index', to: 'cards#index'
+      # post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
     end

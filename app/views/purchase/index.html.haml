@@ -16,4 +16,5 @@
 %br
 = form_with(url: pay_purchase_index_path, local: true) do |f|
   = f.hidden_field :gift_id, value: "#{@gift.id}"
+  = f.hidden_field :buyer_id, value: "#{current_user.id}"
   = f.submit "購入する"
