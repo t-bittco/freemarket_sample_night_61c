@@ -107,15 +107,7 @@
         %br
         .before-input
           = "¥#{@gift.price}"
-    .pay
-      .individual-form
-        .labels-wrapper
-          .label
-            %label 購入する？
-          .caoutions しっかり確認してね！
-        %br
-        .before-input
-          = form_with(url: "/purchase/index", method: :get) do |f|
-            = f.hidden_field :gift_id, value: "#{@gift.id}"
-            = f.submit "購入確認画面へ進む"
+    = form_with(url: "/purchase/index", method: :get) do |f|
+      = f.hidden_field :gift_id, value: "#{@gift.id}"
+      = f.submit "購入確認画面へ進む", id: "pay_btn"
 = render 'footer' 
