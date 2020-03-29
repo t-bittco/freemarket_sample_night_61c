@@ -28,6 +28,7 @@ class PurchaseController < ApplicationController
     redirect_to action: "done", "gift_id": params[:gift_id]  #完了画面に移動
   end
   def done
+    Gift.find(@gift.id).update(listing_state: 2)
   end
 
   private

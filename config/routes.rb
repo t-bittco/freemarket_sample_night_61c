@@ -44,12 +44,13 @@ Rails.application.routes.draw do
     get    'users/signup/registration',   to: 'users/registrations#step1'
     get    'users/signup/sms_confirmation',      to: 'users/registrations#step2'
   end
-  resources :addresses,only:[:create,:update]
+  resources :addresses, only:[:create,:update]
   resources :logout, only: [:index]
   
-  resources :mypage,only: [:index]
+  resources :mypage, only: [:index]
   resources :cards, only: [:index, :new, :show] do
     collection do
+      post 'index', to: 'cards#index'
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'

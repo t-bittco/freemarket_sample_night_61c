@@ -2,14 +2,13 @@ class CardsController < ApplicationController
 
 require "payjp"
   def index
-    # @card = Card.where(user_id: current_user.id).first
-    # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    # customer = Payjp::Customer.retrieve(card.customer_id)
-    # @default_card_information = customer.cards.retrieve(card.card_id)
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
   end
+
   def new
-    # cards = Card.where(user_id: current_user.id)
-    # redirect_to action: "show" if cards.exists?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -25,7 +24,7 @@ require "payjp"
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to action: "show", method: :post
       else
         redirect_to action: "pay"
       end
