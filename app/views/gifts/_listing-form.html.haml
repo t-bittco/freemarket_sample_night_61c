@@ -145,7 +145,7 @@
         = f.number_field :price, placeholder: "Type Price Of Your Gift"
     = f.hidden_field :listing_state, value: 0
     -# 0: 出品中, 1: 交渉中, 2: 売却済, 3: 公開停止
-    = f.hidden_field :user_id, value: "#{current_user}"
+    = f.hidden_field :user_id, value: "#{current_user.id}"
     .submit
       - if @gift.persisted?
         = f.submit "編集完了", id: "submit"
