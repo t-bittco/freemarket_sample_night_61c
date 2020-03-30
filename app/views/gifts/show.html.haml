@@ -47,15 +47,16 @@
             #listing-select-wrapper__box.listing-select-wrapper__box
               #grandchild_category.listing-select-wrapper__box--select
                 = Category.find(@gift.category_id).name
-      .individual-form
-        .labels-wrapper
-          .label
-            %label ブランド
-          .arbitrary 任意
-        %br
-        .before-input
-          .brand-box#brand-box
-            = Brand.find(@gift.brand_id).name
+      - if @gift.brand_id.present?
+        .individual-form
+          .labels-wrapper
+            .label
+              %label ブランド
+            .arbitrary 任意
+          %br
+          .before-input
+            .brand-box#brand-box
+              = Brand.find(@gift.brand_id).name
       .individual-form
         .labels-wrapper
           .label
@@ -105,5 +106,8 @@
           .required 必須
         %br
         .before-input
-          = @gift.price
+          = "¥#{@gift.price}"
+    = form_with(url: "/purchase/index", method: :get) do |f|
+      = f.hidden_field :gift_id, value: "#{@gift.id}"
+      = f.submit "購入確認画面へ進む", id: "pay_btn"
 = render 'footer' 

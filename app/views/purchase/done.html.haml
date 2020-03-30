@@ -1,0 +1,21 @@
+.purchase-main
+  .purchase-wrapper
+    .purchase__title
+      %h2 購入が完了しました
+    .purchase__deteails
+      %p= "商品名：#{@gift.name}"
+      %p= "商品価格：¥#{@gift.price}(送料込み)"
+    %br
+    .purchase__payment
+      .creditcard-info
+        %h3 支払い方法　：　クレジットカード
+        - if @default_card_information.present?
+          %label 番号(下4桁)　：
+          %label= "**** **** **** " + @default_card_information.last4
+          %br
+          %label 月 / 年　：
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          %label= exp_month + " / " + exp_year
+    .hidden-form
+      = link_to "ホームに戻る", :root, id: "submit"
