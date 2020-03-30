@@ -24,8 +24,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def step1
     @user = User.new
-    # session[:provider] = session[:provider]
-    # session[:uid] = session[:uid]
+    session[:provider] = session[:provider]
+    session[:uid] = session[:uid]
   end
 
   def step2

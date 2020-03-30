@@ -1,59 +1,77 @@
+
 .footer
-  .wrapper
-    .about
-      .about__title
-        %h2 About
-      .about__detail
-        会社概要(会社運営)
-        %br
-        採用情報
-        %br
-        プレスリリース
-        %br
-        公式ブログ
-        %br
-        ロゴ利用ガイドライン
-        %br
-    .help
-      .help__title
-        %h2 Help＆Guide
-      .help__detail
-        FreeMarketTeamCガイド
-        %br
-        らくらく便
-        %br
-        ゆうゆう便
-        %br
-        大型便
-        %br
-        車体取引ガイド
-        %br
-        安心・安全宣言
-        %br
-        偽ブランド品撲滅への取組
-        %br
-        TeamCBox
-        %br
-        スマホ出品・売却相場
-    .privacy
-      .privacy__title
-        %h2 Privacy
-      .privacy__detail
-        .privacy__detail--left
-          PrivacyPolicy
-          %br
-          利用規約
-          %br
-          安心スマホサポートに関する規約
-          %br
-          コンプライアンスポリシー
-          %br
-        .privacy__detail--right
-          個人データの安全管理に係る基本方針
-          %br
-          特定商取引に関する表記
-          %br
-          資金決済法に基づく表示
-          %br
-          法令遵守と犯罪抑止のために
-          %br
+  .footer-content
+    .footer-top
+      .footer-top__content
+        %h2 フリマについて
+        %ul
+          %li
+            = link_to "会社概要（運営会社）", "#"
+          %li
+            = link_to "採用情報", "#"
+          %li
+            = link_to "プレスリリース", "#"
+          %li
+            = link_to "公式ブログ", "#"
+          %li
+            = link_to "ロゴ利用ガイドライン", "#"
+          .footer-top__content--social
+            %li
+              = link_to "#" do
+                = icon('fab', 'twitter-square')
+            %li
+              = link_to "#" do
+                = icon('fab', 'facebook-square')
+      .footer-top__content
+        %h2 ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to "ガイド", "#"
+          %li
+            = link_to "らくらく便", "#"
+          %li
+            = link_to "ゆうゆう便", "#"
+          %li
+            = link_to "大型便", "#"
+          %li
+            = link_to "車体取引ガイド", "#"
+          %li
+            = link_to "あんしん・あんぜん宣言！", "#"
+          %li
+            = link_to "偽ブランド品撲滅への取り組み", "#"
+          %li
+            = link_to "ボックス", "#"
+      .footer-top__content
+        %h2 プライバシーと利用規約
+        .footer-top__content--divide
+          .footer-top__content--divide--left
+            %ul
+              %li
+                = link_to "プライバシーポリシー", "#"
+              %li
+                = link_to "利用規約", "#"
+              %li
+                = link_to "あんしんスマホサポート制度に関する利用特約", "#"
+              %li
+                = link_to "コンプライアンスポリシー", "#"
+          .footer-top__content--divide--right
+            %ul
+              %li
+                = link_to "個人データの安全管理に係る基本方針", "#"
+              %li
+                = link_to "特定商取引に関する表記", "#"
+              %li
+                = link_to "資金決済法に基づく表示", "#"
+              %li
+                = link_to "法令順守と犯罪抑止のために", "#"
+      .footer-top__content
+        %h2 国
+        %ul
+          %li
+            = link_to "日本", "#"
+          %li
+            = link_to "United States", "#"
+    .footer-bottom
+      = link_to root_path do
+        %i.fas.fa-shopping-cart.fa-lg
+      %span © 2020 Furima61

@@ -1,10 +1,10 @@
 a{
   color: white;
   .listing-button{
-    height: 80px;
-    width: 80px;
-    background-color: teal;
-    border-radius: 100px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color:#0099e8;
     margin: 20px;
     padding: 10px;
     position: fixed;
@@ -13,12 +13,20 @@ a{
     z-index: 2;
     .btn-icon{
       padding-top: 15px;
+      font-size: 30px;
       @include textbox-centerise();
-      .fas fa-shopping-cart fa-2x fa-spin{
+      .fas {
+        color: #fff;
       }
+      
+    
     }
     p{
-      font-size: 13px;
+      font-size: 25px;
+      color: #fff;
+      text-align: center;
+      padding: 7px;
+      display: inline-block;
       padding-top: 3px;
       @include textbox-centerise();
     } 
