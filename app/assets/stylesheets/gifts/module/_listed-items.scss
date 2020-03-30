@@ -1,7 +1,9 @@
 .items{
   height: calc(100vh - 350px - 24px);
   width: 100%;
-  background-color: peru;
+  background-color: #eee;
+  border-radius: 3px;
+  border: grey;
   display: flex;
   flex-wrap: wrap;
   &__item{

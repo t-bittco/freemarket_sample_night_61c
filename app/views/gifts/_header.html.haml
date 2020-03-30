@@ -2,10 +2,14 @@
   .wrapper
     .upper
       .upper__logo
-        %p FreeMarketTeamC
+        
+        %p 
+          =link_to 'FreeMarketTeamC',root_path
         %i.fas.fa-shopping-cart.fa-lg.fa-spin
+        
       .upper__search-box-form
         %p 何かお探しですか？
+        = fa_icon 'search', class: "icon-gray"
     .under
       %ul.left-menu
         %li.left-menu__categoly
@@ -37,5 +41,5 @@
           %li.right-menu__sign_up
             = link_to "新規会員登録",signup_index_path, class: "btn registration"
           %li.right-menu__sigin_in
-            = link_to "ログイン",new_user_session_path, class: "btn session"
+            = link_to "ログイン",new_user_session_path, class: "btn login"
       

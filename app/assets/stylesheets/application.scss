@@ -13,6 +13,7 @@
 @import "font-awesome-sprockets";
 @import "shared/header";
 @import "shared/footer";
+@import "shared/flash";
 @import "logout/index";
 @import "devise/new";
 @import "devise/signin-step1";
@@ -30,6 +31,7 @@
 @import "mypage/identification";
 @import "mypage/card/index";
 @import "mypage/card/new";
+@import "breadcrumbs";
 
 // 全ページ共通のフォント
 * {

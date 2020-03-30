@@ -2,32 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "module/header";
+@import 'module/listed-items';
+@import "module/footer";
+@import "module/listing-button";
+@import 'module/listed-items';
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic'); 
 .main{
+  font-family: 'Sawarabi Gothic', sans-serif;
   width: 100vw;
   .advertise-box__upper{
     height: 400px;
     width: 100%;
     padding-top: 100px;
-    color: black;
-    background-image: url("IMG_2736.jpg");
+    
+    background-image: url(https://girlydrop.com/wp-content/uploads/post/p118.jpg);
     background-repeat: no-repeat;
-    background-size: 100vw 450px;
+    background-size: 80vw 450px;
+    background-position:center;
     .head{
       width: calc(100vw - 300px);
-      font-size: 50px;
+      font-size: 60px;
       padding-top: 30px;
+      color: #eee;
+      text-stroke: 1.5px  #222;;
+      -webkit-text-stroke: 1.5px  #222;
       @include textbox-centerise();
     }
     .text{
       width: calc(100vw - 300px);
-      font-size: 20px;
-      padding-top: 30px;
+      font-size: 30px;
+      padding-top: 50px;
+      color: #eee;
+      text-stroke: 1px #222;
+      -webkit-text-stroke: 1px #222;
       @include textbox-centerise();
     }
   }
   .popular-categories{
     height: 85px;
     padding-bottom: 30px;
+    padding-top: 30px;
+
     &__title{
      height: 39px; 
      font-size: 30px;
@@ -39,7 +54,7 @@
       list-style: none;
       @include flex-box();
       li{
-        background-color: gray;
+        background-color:  #eee;
         padding: 2px 10px 2px 10px;
         margin-left: 10px;
         border-radius: 10px;
@@ -65,11 +80,11 @@
         right: 0;
       }
     }
-  @import 'module/listed-items';
+  
   }
   .popular-brands{
     height: 85px;
-    padding-top: 56px;
+    padding-top: 30px;
     padding-bottom: 30px;
     &__title{
      height: 39px; 
@@ -82,7 +97,7 @@
       list-style: none;
       @include flex-box();
       li{
-        background-color: gray;
+        background-color:  #eee;
         padding: 2px 10px 2px 10px; 
         margin-left: 10px;
         border-radius: 10px;
@@ -109,9 +124,10 @@
         right: 0;
       }
     }
-  @import 'module/listed-items';
+  
   }
   .advertise-box__under{
+    position: relative;
     height: 200px;
     background-image: url("IMG_1950.jpg");
     background-size: 100vw 200px;
@@ -120,12 +136,14 @@
       width: calc(100vw - 300px);
       padding-top: 30px;
       @include textbox-centerise();
+      color: #222;
     }
     .text{
       font-size: 20px;
       width: calc(100vw - 300px);
       padding-top: 30px;
       @include textbox-centerise();
+      color: #222;
     }
     .link{
       width: calc(100vw - 300px);
@@ -136,7 +154,21 @@
         color: white;
       }
     }
+    .app-image{
+      position: absolute;
+      bottom: 100px;
+      right: 50px;
+      ul {
+        display: flex;
+        
+        
+        li {
+          padding: 10px;
+        }
+        a:hover {
+          opacity: 0.7;
+        }
+      }
+    }
   }
 }
-@import "module/footer";
-@import "module/listing-button";

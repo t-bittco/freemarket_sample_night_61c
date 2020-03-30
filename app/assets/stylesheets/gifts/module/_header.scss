@@ -1,8 +1,11 @@
 .header{
-  width: 100vw;
-  height: 100px;
-  position: fixed;
+  width: 72%;
+  margin: 0 auto;
+  padding: 10px;
+  padding-bottom: 45px;
+  // position: fixed;
   background-color: white;
+  display: flex;
   z-index: 1;
   .wrapper{
     width: calc(100vw - 200px);
@@ -12,13 +15,15 @@
       @include flex-box();
       &__logo{
         width: 200px;
-        background-color: thistle;
+        background-color: rgb(245, 245, 245);
         padding: 10px;
         margin: 10px 20px 0px 0px;
-        border: solid 2px turquoise;
+        border: solid 2px #eee;
+        border-radius: 3px;
         @include flex-box();
-        p{
-          margin-right: 10px; 
+        a{
+          margin-right: 10px;
+          color: grey; 
         } 
         .fas fa-shopping-cart fa-lg fa-spin{
           font-family: "Font Awesome 5 Free";
@@ -28,10 +33,16 @@
       }
       &__search-box-form{
         width: calc(100% - 200px);
-        background-color: gray;
+        background-color:rgb(245, 245, 245);
         padding: 10px;
         margin-top: 10px;
-        border: solid 2px turquoise;
+        border: solid 2px #eee;
+        display: flex;
+        border-radius: 3px;
+        p{
+          color: grey;
+          padding-right:10px;
+        }
       }
     }
     .under{
@@ -65,29 +76,67 @@
         position: absolute;
         right: 0;
         @include flex-box();
+        
         &__sign_up{
-          font-size: 13px;
-          color: white;
-          background-color: red;
-          margin-right: 10px;
-          border-radius: 5px;
-          border: solid 2px red;
-          p{
-            padding: 10px;
-            text-align: center;
-          }
+          // font-size: 13px;
+          // // color: white;
+          // background-color: red;
+          // margin-right: 10px;
+          // border-radius: 5px;
+          // border: solid 2px red;
+          
         }
         &__sigin_in{
-          font-size: 13px;
-          color: skyblue;
-          border-radius: 5px;
-          border: solid 2px skyblue;
-          p{
-            padding: 10px;
-            text-align: center;
-          }
+          // font-size: 13px;
+          // // color: skyblue;
+          // border-radius: 5px;
+          // border: solid 2px skyblue;
+          
+        }
+        li{
+          padding-right: 10px;
         }
       }
     }
+  }
+}
+
+.icon {
+  
+  &-gray {
+    color: #CCC;
+    
+  }
+  
+}
+
+
+.btn {
+  line-height: 32px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.registration {
+  border: 2px solid #ea352d;
+  background: #ea352d;
+  color: #fff;
+  opacity: 0.9;
+  font-size: 13px;
+  transition-duration: 0.3s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.login {
+  border: 2px solid #0099e8;
+  color: #0099e8;
+  transition-duration: 0.3s;
+  font-size: 13px;
+  &:hover {
+    background: #0099e8;
+    color: #fff;
   }
 }
