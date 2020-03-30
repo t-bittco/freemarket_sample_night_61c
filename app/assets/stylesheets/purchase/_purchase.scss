@@ -1,0 +1,51 @@
+.purchase-wrapper{
+  width: 90%;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #fff;
+  @include textbox-centerise();
+  .purchase__title{
+    height: 50px;
+    border-bottom: 1px solid #f5f5f5;
+    font-weight: bold;
+    h2{
+      font-size: 18px;
+      text-align: center;
+      padding: 12px 4%;
+    }
+  }
+  .purchase__details{
+    min-width: 200px;
+    p{
+      font-size: 20px;
+    }
+  }
+  .purchase__payment{
+    height: 400px;
+    .how-to-pay{
+      height: 50px;
+      h3{
+        padding: 5px;
+      }
+    }
+    .creditcard-info{
+      font-size: 16px;
+    }
+  }
+  .hidden-form{
+    #submit{
+      display       : inline-block;
+      border-radius : 5%;          /* 角丸       */
+      font-size     : 18pt;        /* 文字サイズ */
+      text-align    : center;      /* 文字位置   */
+      cursor        : pointer;     /* カーソル   */
+      padding       : 12px 12px;   /* 余白       */
+      background    : #000066;     /* 背景色     */
+      color         : #ffffff;     /* 文字色     */
+      line-height   : 1em;         /* 1行の高さ  */
+      transition    : .3s;         /* なめらか変化 */
+      border        : 2px solid #000066;    /* 枠の指定 */  
+    }
+  }
+}
