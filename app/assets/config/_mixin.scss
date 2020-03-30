@@ -22,6 +22,7 @@
   color: $color2;
 }
 
+// :new, :edit, :show で使用
 @mixin forms(){
   .individual-form{
     width: 80%;
