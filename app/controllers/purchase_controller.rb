@@ -5,7 +5,7 @@ class PurchaseController < ApplicationController
 
   def index
     if @card.blank?
-      redirect_to controller: "card", action: "new"
+      redirect_to controller: "cards", action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
