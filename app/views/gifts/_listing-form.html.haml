@@ -105,7 +105,13 @@
             = f.label :state, "商品の状態"
           .required 必須
         %br
-        = f.text_field :state, placeholder: "Choose State Of Your Gift"
+        %select{name: "state"}
+          %option{value: "---"} ---
+          %option{value: "未開封新品同様"} 未開封新品同様
+          %option{value: "開封済み未使用美品、問題なく使用できる"} 開封済み未使用美品、問題なく使用できる
+          %option{value: "キズあり、問題なく使用できる"} キズあり、問題なく使用できる
+          %option{value: "美品、性能に問題アリ"} 美品、性能に問題アリ
+          %option{value: "キズあり、性能に問題アリ"} キズあり、性能に問題アリ
     .gift-ships
       .individual-form
         .labels-wrapper
@@ -113,14 +119,28 @@
             = f.label :shipping_charge, "配送料の負担"
           .required 必須
         %br
-        = f.text_field :shipping_charge, placeholder: "Who"
+        %select{name: "shipping_charge"}
+          %option{value: "---"} ---
+          %option{value: "出品者負担"} 出品者負担
+          %option{value: "購入者負担"} 購入者負担
+
       .individual-form
         .labels-wrapper
           .label
             = f.label :how_to_ship, "配送方法"
           .required 必須
         %br
-        = f.text_field :how_to_ship
+        %select{name: "how_to_ship"}
+          %option{value: "---"} ---
+          %option{value: "落落フリマ便"} 落落フリマ便
+          %option{value: "youyouメルカリ便"} youyouメルカリ便
+          %option{value: "遊メール"} 遊メール
+          %option{value: "ラブレターパック"} ラブレターパック
+          %option{value: "普通っちゃ普通っぽい郵便（定型外のみ）"} 普通っちゃ普通っぽい郵便（定型外のみ）
+          %option{value: "黒猫大和清少納言"} 黒猫大和清少納言
+          %option{value: "ゆうパック"} ゆうパック
+          %option{value: "クリックポスト・テロメア・フィナーぜ"} クリックポスト・テロメア・フィナーぜ
+          %option{value: "ゆうバゲット"} ゆうバゲット
       .individual-form
         .labels-wrapper
           .label
@@ -134,13 +154,14 @@
             = f.label :days_to_ship, "発送までの日数"
           .required 必須
         %br
-        = f.text_field :days_to_ship
+        = f.number_field :days_to_ship
     .gift-price
       .individual-form
         .labels-wrapper
           .label
             = f.label :price, "販売価格"
           .required 必須
+          .cautions ※日数を指定
         %br
         = f.number_field :price, placeholder: "Type Price Of Your Gift"
     = f.hidden_field :listing_state, value: 0
