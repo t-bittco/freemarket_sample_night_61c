@@ -8,8 +8,12 @@ class GiftsController < ApplicationController
     @gifts = Gift.includes(:images).order("created_at DESC")
   end
   def new
-    @gift = Gift.new
-    @gift.images.new
+    if user_signed_in?
+      @gift = Gift.new
+      @gift.images.new
+    else
+      redirect_to :index
+    end
   end
   def create
     @gift = Gift.new(gift_params)
