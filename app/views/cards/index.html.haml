@@ -20,7 +20,7 @@
                       = "**** **** ****"+ "#{@exp_last4[i]}"
                       %br
                       = "#{my}"
-                    .card-remove-btn
+                    .card-remove-btnn
                       = form_with(url: delete_cards_path) do |f|
                         = f.hidden_field :card_id, value: "#{@cards[i].id}"
                         = f.submit "削除する"

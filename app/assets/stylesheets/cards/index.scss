@@ -25,7 +25,7 @@
             margin: 0 auto;
             font-weight: bold;
             padding: 24px 0;
-            position: relative;
+            // position: relative;
           }
           .card-list__detail{
             @include textbox-centerise();
@@ -37,20 +37,23 @@
               margin: 0;
               font-size: 16px;
               font-weight: 400;
+              position: relative;
               .card-user-info-text{
                 height: 70px;
               }
-              .card-remove-btn{
-                position: absolute;
+              .card-remove-btnn{
+                
                 width: 70px;
                 height: 24px;
-                top: 0;
-                right: 0;
+                position: absolute;
+                top: 10px;
+                right: 100px;
+                
                 padding: 4px 6px;
                 background: #fff;
                 border-radius: 3px;
-                border: 1px solid #ea352d;
-                color: #ea352d;
+                // border: 1px solid #ea352d;
+                // color: #ea352d;
               }
             }
             .add-card{

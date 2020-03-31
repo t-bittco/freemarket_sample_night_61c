@@ -5,6 +5,8 @@ class User < ApplicationRecord
          
   has_many :addresses,dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
+  # has_many :cards,dependent: :destroy
+  # has_many :gifts,dependent: :destroy
 
   validates :nickname, presence: true, length: { maximum: 15 },profanity_filter: true
   validates :f_name_kanji, presence: true, length: { maximum: 15 }, format: { with: /\A[一-龥]+\z/ }
