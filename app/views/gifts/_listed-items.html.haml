@@ -10,9 +10,9 @@
             .item-discriptions--categories
               .soldout
                 SOLD OUT
-              = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
-              - if gift.brand_id.present?
-                = "#{Brand.find("#{gift.brand_id}").name}"
+              -# = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
+              -# - if gift.brand_id.present?
+              -#   = "#{Brand.find("#{gift.brand_id}").name}"
             -# %button.item-discriptions--edit-btn= link_to '編集', edit_gift_path(gift)
             -# %button.item-discriptions--delete-btn= link_to '削除', gift_path(gift), method: :delete
       - else
@@ -25,7 +25,6 @@
               = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
               - if gift.brand_id.present?
                 = "#{Brand.find("#{gift.brand_id}").name}"
-
   - else
     - @gifts.first(10).each do |gift|
       .items__item

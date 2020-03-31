@@ -7,6 +7,7 @@
     background-color: white;
     margin-right: auto;
     margin-left: auto;
+    padding-bottom: 50px;
     .gift-about, .gift-detail, .gift-ships, .gift-price{
       @include forms();
     }
@@ -14,6 +15,25 @@
       @include textbox-centerise();
       padding: 30px;
       #pay_btn{
+        display       : inline-block;
+        border-radius : 5%;          /* 角丸       */
+        font-size     : 18pt;        /* 文字サイズ */
+        text-align    : center;      /* 文字位置   */
+        cursor        : pointer;     /* カーソル   */
+        padding       : 12px 12px;   /* 余白       */
+        background    : #000066;     /* 背景色     */
+        color         : #ffffff;     /* 文字色     */
+        line-height   : 1em;         /* 1行の高さ  */
+        transition    : .3s;         /* なめらか変化 */
+        border        : 2px solid #000066;    /* 枠の指定 */  
+      }
+    }
+    .hidden-form{
+      @include textbox-centerise();
+      .cautions{
+        @include labels();
+      }
+      #submit{
         display       : inline-block;
         border-radius : 5%;          /* 角丸       */
         font-size     : 18pt;        /* 文字サイズ */

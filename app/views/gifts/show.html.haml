@@ -107,7 +107,13 @@
         %br
         .before-input
           = "¥#{@gift.price}"
-    = form_with(url: "/purchase/index", method: :get) do |f|
-      = f.hidden_field :gift_id, value: "#{@gift.id}"
-      = f.submit "購入確認画面へ進む", id: "pay_btn"
+    - if @gift.listing_state != 0 
+      .hidden-form
+        .cautions 
+          ※この商品はすでに購入されているか、他のユーザーが交渉中です
+        = link_to "ホームに戻る", :root, id: "submit"
+    - else 
+      = form_with(url: "/purchase/index", method: :get) do |f|
+        = f.hidden_field :gift_id, value: "#{@gift.id}"
+        = f.submit "購入確認画面へ進む", id: "pay_btn"
 = render 'footer' 
