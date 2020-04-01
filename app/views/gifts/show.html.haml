@@ -64,7 +64,7 @@
           .required 必須
         %br
         .before-input
-          = @gift.state
+          = @gift.status.name
     .gift-ships
       .individual-form
         .labels-wrapper
@@ -73,7 +73,7 @@
           .required 必須
         %br
         .before-input
-          = @gift.shipping_charge
+          = @gift.charge.name
       .individual-form
         .labels-wrapper
           .label
@@ -81,7 +81,7 @@
           .required 必須
         %br
         .before-input
-          = @gift.how_to_ship
+          = @gift.how_to_ship.name
       .individual-form
         .labels-wrapper
           .label
@@ -89,7 +89,7 @@
           .required 必須
         %br
         .before-input
-          = @gift.sender_region
+          = @gift.region.name
       .individual-form
         .labels-wrapper
           .label
@@ -97,7 +97,7 @@
           .required 必須
         %br
         .before-input
-          = @gift.days_to_ship
+          = @gift.days.name
     .gift-price
       .individual-form
         .labels-wrapper
@@ -107,7 +107,7 @@
         %br
         .before-input
           = "¥#{@gift.price}"
-    - if @gift.listing_state != 0 
+    - if @gift.listing_state != "0" 
       .hidden-form
         .cautions 
           ※この商品はすでに購入されているか、他のユーザーが交渉中です

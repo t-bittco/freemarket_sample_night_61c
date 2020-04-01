@@ -5,6 +5,7 @@ class PurchaseController < ApplicationController
 
   def index
     if @card.blank?
+      flash[:alert] = "支払い方法を設定してください"
       redirect_to controller: "cards", action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
