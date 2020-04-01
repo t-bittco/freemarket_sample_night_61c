@@ -7,7 +7,7 @@
             = f.label :name, "商品名"
           .required 必須
         %br
-        = f.text_field :name, placeholder: "Until 40",label: "商品名"
+        = f.text_field :name, placeholder: "Until 40"
       .individual-form#image-box
         .labels-wrapper
           .label
@@ -102,59 +102,39 @@
       .individual-form
         .labels-wrapper
           .label
-            = f.label :state, "商品の状態"
+            = f.label :status, "商品の状態"
           .required 必須
         %br
-        %select{name: "state"}
-          %option{value: "---"} ---
-          %option{value: "未開封新品同様"} 未開封新品同様
-          %option{value: "開封済み未使用美品、問題なく使用できる"} 開封済み未使用美品、問題なく使用できる
-          %option{value: "キズあり、問題なく使用できる"} キズあり、問題なく使用できる
-          %option{value: "美品、性能に問題アリ"} 美品、性能に問題アリ
-          %option{value: "キズあり、性能に問題アリ"} キズあり、性能に問題アリ
+        = f.collection_select :status_id, Status.all, :id, :name
     .gift-ships
       .individual-form
         .labels-wrapper
           .label
-            = f.label :shipping_charge, "配送料の負担"
+            = f.label :charge_id, "配送料の負担"
           .required 必須
         %br
-        %select{name: "shipping_charge"}
-          %option{value: "---"} ---
-          %option{value: "出品者負担"} 出品者負担
-          %option{value: "購入者負担"} 購入者負担
-
+        = f.collection_select :charge_id, Charge.all, :id, :name
       .individual-form
         .labels-wrapper
           .label
-            = f.label :how_to_ship, "配送方法"
+            = f.label :how_to_ship_id, "配送方法"
           .required 必須
         %br
-        %select{name: "how_to_ship"}
-          %option{value: "---"} ---
-          %option{value: "落落フリマ便"} 落落フリマ便
-          %option{value: "youyouメルカリ便"} youyouメルカリ便
-          %option{value: "遊メール"} 遊メール
-          %option{value: "ラブレターパック"} ラブレターパック
-          %option{value: "普通っちゃ普通っぽい郵便（定型外のみ）"} 普通っちゃ普通っぽい郵便（定型外のみ）
-          %option{value: "黒猫大和清少納言"} 黒猫大和清少納言
-          %option{value: "ゆうパック"} ゆうパック
-          %option{value: "クリックポスト・テロメア・フィナーぜ"} クリックポスト・テロメア・フィナーぜ
-          %option{value: "ゆうバゲット"} ゆうバゲット
+        = f.collection_select :how_to_ship_id, HowToShip.all, :id, :name
       .individual-form
         .labels-wrapper
           .label
-            = f.label :sender_region, "発送元地域"
+            = f.label :region_id, "発送元地域"
           .required 必須
         %br
-        = f.text_field :sender_region
+        = f.collection_select :region_id, Region.all, :id, :name
       .individual-form
         .labels-wrapper
           .label
-            = f.label :days_to_ship, "発送までの日数"
+            = f.label :days_id, "発送までの日数"
           .required 必須
         %br
-        = f.number_field :days_to_ship
+        = f.collection_select :days_id, Days.all, :id, :name
     .gift-price
       .individual-form
         .labels-wrapper

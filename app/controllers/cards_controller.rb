@@ -35,15 +35,18 @@ class CardsController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
+        flash[:notice] = "支払い方法を設定しました"
         redirect_to action: "index"
       else
-        redirect_to action: "pay"
+        flash[:alert] = "入力情報に誤りがあります。再度入力してください"
+        redirect_to action: "new"
       end
     end
   end
 
   def delete #PayjpとCardデータベースを削除します
     if @cards.blank?
+      flash[:alert] = "クレジットカードが登録されていません"
       redirect_to action: "index"
     else
       card = @cards.find(params[:card_id])
@@ -51,6 +54,7 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
+      flash[:notice] = "クレジットカード情報を消去しました"
       redirect_to action: "index"
     end
   end
