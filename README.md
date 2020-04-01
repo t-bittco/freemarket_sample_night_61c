@@ -67,9 +67,8 @@ Things you may want to cover:
 |Column         |Type   |Options                       |
 |---------------|-------|------------------------------|
 |user_id        |integer|null: false, foreign_key: true|
-|card_number    |integer|null: false                   |
-|expiration_date|integer|null: false                   |
-|security_code  |integer|null: false                   |
+|customer_id    |string |null: false                   |
+|card_id        |string |null: false                   |
 
 ### Association
 - belongs_to: user
@@ -120,15 +119,15 @@ Things you may want to cover:
 |---------------|-------|------------------------------|
 |name           |string |null: false                   |
 |description    |text   |null: false                   |
-|shipping_charge|string |null: false                   |
-|how_to_ship    |string |null: false                   |
-|sender_region  |string |null: false                   |
-|days_to_ship   |string |null: false                   |
-|state          |text   |null: false                   |
+|charge_id      |integer|null: false                   |
+|how_to_ship_id |integer|null: false                   |
+|region_id      |integer|null: false                   |
+|days_id        |integer|null: false                   |
+|status_id      |integer|null: false                   |
 |price          |integer|null: false                   |
 |user_id        |integer|null: false                   |
 |category_id    |integer|null: false                   |
-|buyer_id       |integer|null: false, foreign_key: true|
+|buyer_id       |integer|foreign_key: true             |
 |listing_state  |integer|------------------------------|
 
 ### Association
@@ -155,26 +154,6 @@ Things you may want to cover:
 
 ### Association
 - belongs_to : gift
-
-## user_gift_purchasesテーブル
-|Column     |Type   |Options                       |
-|-----------|-------|------------------------------|
-|gift_id    |integer|null: false, foreign_key: true|
-|user_id    |integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to: user
-- belongs_to: gift
-
-## like_history_flagsテーブル
-|Column      |Type   |Options          |
-|------------|-------|-----------------|
-|user_gift_id|integer|foreign_key: true|
-|is_like_flag|boolean|-----------------|
-|history_flag|boolean|-----------------|
-
-### Association
-- belongs_to: user_gift_purchases
 
 # ER図
 https://www.lucidchart.com/documents/edit/54f77995-ee91-4202-9faa-8ace71926ae4/0_0?shared=true
