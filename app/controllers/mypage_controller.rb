@@ -35,6 +35,7 @@ class MypageController < ApplicationController
     # end
   end
 
+
   private
   def address_params
     
